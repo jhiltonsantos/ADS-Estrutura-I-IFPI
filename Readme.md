@@ -1,4 +1,4 @@
-# Disciplina de Estrutura de Dados I (ADS/2019.1)
+# Disciplina de Estrutura de Dados I (ADS/2019.2)
 
 Códigos realizados durante a Disciplina de Estutura de Dados I
 no 2º Período do curso de Análise e Desenvolvimento de Sistemas no Instituto Federal do Piauí.
