@@ -33,6 +33,8 @@ int main(){
         printf("Valor na posicao %d: %d\n", i+1,vetorB[i]);
     }
     */
+
+    /*
     int tamanho;
     soma = quantA + quantB;
     for (int i=0; i<soma;i++){
@@ -61,7 +63,7 @@ int main(){
     for (int i=0; i<tamanho;i++){
         printf("Valor na posicao %d: %d\n", i+1,vetorU[i]);
     }
-
+    */
 
     return 0;
 
