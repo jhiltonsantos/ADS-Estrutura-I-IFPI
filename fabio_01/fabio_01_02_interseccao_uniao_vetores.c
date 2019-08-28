@@ -13,7 +13,7 @@ int main(){
 
     printf("\n");
     int vetorA[quantA], vetorB[quantB];
-
+		
     for (int i=0;i<quantA;i++){
         printf("Digite o valor na posicao %d no vetor A: ", i+1);
         scanf("%d", &vetorA[i]);
