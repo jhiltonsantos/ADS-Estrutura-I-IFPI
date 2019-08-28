@@ -5,7 +5,8 @@
 #include <stdio.h>
 
 int main(){
-    int quantA, quantB, soma;
+    // TAMANHO DOS VETORES 'A' E 'B'
+    int quantA, quantB;
     printf("Determine quantidade de posicoes no vetor A: ");
     scanf("%d", &quantA);
     printf("Determine quantidade de posicoes no vetor B: ");
@@ -13,7 +14,7 @@ int main(){
 
     printf("\n");
     int vetorA[quantA], vetorB[quantB];
-		
+	// ADICIONANDO VALORES EM VETOR 'A' E 'B'
     for (int i=0;i<quantA;i++){
         printf("Digite o valor na posicao %d no vetor A: ", i+1);
         scanf("%d", &vetorA[i]);
@@ -23,49 +24,39 @@ int main(){
         printf("Digite o valor na posicao %d no vetor B: ", i+1);
         scanf("%d", &vetorB[i]);
     }
-    /*
-    for (int i=0; i<quantA;i++){
-        printf("Vetor A");
-        printf("Valor na posicao %d: %d\n", i+1,vetorA[i]);
+    
+    // DETERMINANDO VETOR DE UNIAO
+    /*int maior_vetor;
+    if (quantA>quantB){
+        maior_vetor = quantA;
     }
-    for (int i=0; i<quantB;i++){
-        printf("Vetor B");
-        printf("Valor na posicao %d: %d\n", i+1,vetorB[i]);
-    }
-    */
+    else{
+        maior_vetor = quantB;
+    }*/
 
-    /*
-    int tamanho;
+    int soma;
     soma = quantA + quantB;
-    for (int i=0; i<soma;i++){
-        if (vetorA[i]!=vetorB[i]){
-            tamanho = tamanho+1;
-        }
-    }
-
-
-
-    int vetorU[tamanho], vetorI[soma];
+    int vetorU[soma];
 
     for (int i=0;i<quantA;i++){
         vetorU[i] = vetorA[i];
     }
-
-    for (int i=0;i<tamanho;i++){
-        for (int i=0;i<quantB;i++){
-            if (vetorU[i] != vetorB[i]){
-                vetorU[i+1] = vetorB[i];
+    
+    for (int i=0; i<soma;i++){
+        for (int k=0;k<quantB;k++){
+            if (vetorU[i] == vetorB[k]){
+                vetorU[i] = vetorB[k];
             }
         }
     }
 
-
-    for (int i=0; i<tamanho;i++){
+    for (int i=0; i<soma;i++){
         printf("Valor na posicao %d: %d\n", i+1,vetorU[i]);
     }
-    */
+
+
 
     return 0;
-
+    //system("PAUSE");
 
 }
