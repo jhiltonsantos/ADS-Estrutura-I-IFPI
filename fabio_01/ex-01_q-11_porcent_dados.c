@@ -19,19 +19,19 @@ int main(){
         if (vetor[i] == 1){
             quant1++;
         }
-        else if(vetor[i]==2){
+        else if (vetor[i]==2){
             quant2++;
         }
-        else if(vetor[i]==3){
+        else if (vetor[i]==3){
             quant3++;
         }
-        else if(vetor[i]==4){
+        else if (vetor[i]==4){
             quant4++;
         }
-        else if(vetor[i]==5){
+        else if (vetor[i]==5){
             quant5++;
         }
-        else if(vetor[i]==6){
+        else if (vetor[i]==6){
             quant6++;
         }
     }
