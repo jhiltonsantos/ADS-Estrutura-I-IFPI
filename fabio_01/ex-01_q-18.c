@@ -15,16 +15,27 @@ int main(void){
 
     srand(time(NULL));
     float consumo[5];
-    for(int i=0; i<5; i++)
-    {
-        consumo[i] = 7.0 + (rand()) % 20;
-    }
 
     for(int i=0; i<5; i++)
     {
-        printf("Valor na %dª posicao: %.2fl", i+1, consumo[i]);
+        consumo[i] = (7 + (rand()) % 20);
+    }
+    
+
+    float mais_economico;
+    mais_economico = consumo[0];
+    for(int i=0; i<5; i++)
+    {
+        if (consumo[i] < mais_economico)
+        {
+            mais_economico = consumo[0];
+        }
+        
     }
 
+
+    printf("\n\nComparativo de Consumo de Combustivel\n");
+    printf("O menor consumo é: %.2f", mais_economico);
 
 
 }
