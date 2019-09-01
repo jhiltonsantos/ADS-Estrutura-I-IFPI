@@ -39,7 +39,7 @@ int main(void){
     dados[3].Quantidade = 0;
     dados[4].Quantidade = 0;
 
-    for (int j=0; j<5; j++)
+    for (int j=0; j<50; j++)
     {
         if (sistema[j].Cod_Sys == 1){
             strcpy(dados[0].Nome, "Windows Server");
