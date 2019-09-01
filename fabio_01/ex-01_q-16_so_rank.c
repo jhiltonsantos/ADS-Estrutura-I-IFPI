@@ -17,8 +17,9 @@ typedef struct quantidade_nome
 
 int main(void){
     System sistema[50];
-    
-    int codigo=0, i=0;
+    Quant dados[5];
+
+    int codigo=0, i=0, total=0;
     do
     {
         printf("Qual o melhor Sistema Operacional para uso em servidores?\n");
@@ -29,10 +30,7 @@ int main(void){
         }
         i ++;
     }while (codigo != 0);
-
-    Quant dados[5];
-
-    int total=0;
+    
     dados[0].Quantidade = 0;
     dados[1].Quantidade = 0;
     dados[2].Quantidade = 0;
@@ -77,15 +75,15 @@ int main(void){
         porcentagem[j] = (dados[j].Quantidade * 100) / total;
     }
 
-    printf("\n\nSistema Operacional     Votos   %%\n");
+    printf("\n\nSistema Operacional     Votos     %%\n");
     printf("____________________________\n");
-    printf("Windows Server  %d  %.0f%%\n", dados[0].Quantidade, porcentagem[0]);
-    printf("Linux  %d  %.0f%%\n", dados[1].Quantidade, porcentagem[1]);
-    printf("Unix  %d  %.0f%%\n", dados[2].Quantidade, porcentagem[2]);
-    printf("Netware  %d  %.0f%%\n", dados[3].Quantidade, porcentagem[3]);
-    printf("MacOS  %d  %.0f%%\n", dados[4].Quantidade, porcentagem[4]);
+    printf("Windows Server            %d     %.0f%%\n", dados[0].Quantidade, porcentagem[0]);
+    printf("Linux                     %d     %.0f%%\n", dados[1].Quantidade, porcentagem[1]);
+    printf("Unix                      %d     %.0f%%\n", dados[2].Quantidade, porcentagem[2]);
+    printf("Netware                   %d     %.0f%%\n", dados[3].Quantidade, porcentagem[3]);
+    printf("MacOS                     %d     %.0f%%\n", dados[4].Quantidade, porcentagem[4]);
     printf("____________________________\n");
-    printf("\nTotal         %d\n\n", total);
+    printf("Total         %d\n\n", total);
 
     int mais_votado = 0;
     char mais_nome[30];
