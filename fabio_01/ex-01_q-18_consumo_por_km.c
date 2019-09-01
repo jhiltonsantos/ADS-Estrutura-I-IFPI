@@ -17,7 +17,7 @@ int main(void){
     for (int i=0; i<5; i++)
     {
         printf("Digite o nome do carro na %dª posicao: ", i+1);
-        scanf("%s", &veiculo[i].Nome);
+        scanf("%s", veiculo[i].Nome);
         veiculo[i].Consumo = (7 + (rand()) % 20);
         veiculo[i].Valor = (1000 / veiculo[i].Consumo) * 2,25;    
     }
