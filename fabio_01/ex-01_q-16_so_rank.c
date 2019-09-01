@@ -30,13 +30,11 @@ int main(void){
         }
         i ++;
     }while (codigo != 0);
-    
-    dados[0].Quantidade = 0;
-    dados[1].Quantidade = 0;
-    dados[2].Quantidade = 0;
-    dados[3].Quantidade = 0;
-    dados[4].Quantidade = 0;
 
+    for(int j=0; j<5;j++){
+        dados[j].Quantidade = 0;
+    }
+    
     for (int j=0; j<50; j++)
     {
         if (sistema[j].Cod_Sys == 1){
@@ -85,6 +83,7 @@ int main(void){
     printf("____________________________\n");
     printf("Total         %d\n\n", total);
 
+    
     int mais_votado = 0;
     char mais_nome[30];
     float maior_porcentagem;
