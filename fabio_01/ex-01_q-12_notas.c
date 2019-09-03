@@ -49,9 +49,7 @@ int main(){
         }
         
     }
-
     media = soma / divisor;
-
     printf("\n\nSoma das Notas: %.1f.", soma);
     printf("\nMedia das Notas: %.1f.", media);
     printf("\nQuantidade de Notas Abaixo de 7: %d\n\n", abaixo);
