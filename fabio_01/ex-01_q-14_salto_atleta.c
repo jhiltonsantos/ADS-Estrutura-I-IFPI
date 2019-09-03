@@ -16,6 +16,7 @@ int main(void){
         printf("Atleta: %s.\n\n", nome);
 		int salto[5];
 		float soma = 0;
+		
 		for (int i=0; i<5; i++)
         {
 			salto[i] = i + 1;
@@ -26,22 +27,20 @@ int main(void){
 		}
 		
         media = soma / 5;
-		printf("Resultado final\n");
+		printf("\n\nResultado final: \n");
         printf("Atleta: %s \n", nome);
-        prinft("Saltos: ");
+        printf("Saltos: ");
         
 		for (int i=0; i<4; i++)
         { 
 			printf("%.1f - " , distancia[i]);
 		}
 		printf("%.1f\n", distancia[4]);
-		printf("Media dos saltos: %.2f\n\n", media);
+		printf("Media dos saltos: %.2f m\n\n", media);
 		
-		printf("Digite o nome do atleta: ");
+		printf("Qual o nome do atleta? ");
 		gets(nome);
 	}
-
-
 
 	return 0;
 }
