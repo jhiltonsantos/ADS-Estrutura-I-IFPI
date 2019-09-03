@@ -33,6 +33,7 @@ int main(void){
             total ++;
         }
         i ++;
+        asdasdasd
         
 
     } while (dado != 0);
