@@ -1,5 +1,3 @@
-### Instituto Federal do Piauí - IFPI 
-
 ### Escreva um programa em C que:
 
 1. **Leia 2 vetores A e B com N elementos, escreva um vetor C, sendo este a junção das vetores A e B. Desta forma, o vetor C deverá ter 2*N elementos.**
@@ -13,28 +11,27 @@
 
 5. **Leia um vetor A com N elementos e escreva um vetor B com N elementos, conforme a seguinte condição: se índice de A[índice] é par então B[índice] = 0, caso contrário B[índice] = 1.**
 
-6. Leia um vetor com N elementos, encontre e escreva o maior e o menor elemento e suas respectivas posições no vetor.
+6. **Leia um vetor com N elementos, encontre e escreva o maior e o menor elemento e suas respectivas posições no vetor.**
 
-7. Leia um vetor com N elementos, ordene-o e escreva-o em ordem crescente.
+7. **Leia um vetor com N elementos, ordene-o e escreva-o em ordem crescente.**
 
-8. Gere um vetor com os N primeiros termos da seqüência de Fibonacci (0,1,1,2,3,5,8,13,21,...).
+8. **Gere um vetor com os N primeiros termos da seqüência de Fibonacci *(0,1,1,2,3,5,8,13,21,...)*.**
 
-9. Leia um vetor com N números, calcule e escreva a soma e a media dos números lidos.
+9. **Leia um vetor com N números, calcule e escreva a soma e a media dos números lidos.**
 
-10. Leia um vetor com tamanho indefinido, calcule e escreva a soma e a media dos números lidos.
+10. **Leia um vetor com tamanho indefinido, calcule e escreva a soma e a media dos números lidos.**
 
-11. Um dado é lançado 50 vezes, e o valor correspondente é armazenado em um vetor. Faça um programa que determine o percentual de ocorrências de cada face do dado dentre esses 50 lançamentos.
+11. **Um dado é lançado 50 vezes, e o valor correspondente é armazenado em um vetor. Faça um programa que determine o percentual de ocorrências de cada face do dado dentre esses 50 lançamentos.**
 
-12. Leia um número indeterminado de valores, correspondentes a notas, encerrando a entrada de dados quando for informado um valor igual a -1 (que não deve ser armazenado). Após esta entrada de dados, faça:\n
-
-a. Mostre a quantidade de valores que foram lidos;\n
-b. Exiba todos os valores na ordem em que foram informados, um ao lado do outro;
-c. Exiba todos os valores na ordem inversa à que foram informados, um abaixo do outro;
-d. Calcule e mostre a soma dos valores;
-e. Calcule e mostre a média dos valores;
-f. Calcule e mostre a quantidade de valores acima da média calculada;
-g. Calcule e mostre a quantidade de valores abaixo de sete;
-h. Encerre o programa com uma mensagem;
+12. **Leia um número indeterminado de valores, correspondentes a notas, encerrando a entrada de dados quando for informado um valor igual a -1 (que não deve ser armazenado). Após esta entrada de dados, faça:**  
+*a. Mostre a quantidade de valores que foram lidos;  
+b. Exiba todos os valores na ordem em que foram informados, um ao lado do outro;  
+c. Exiba todos os valores na ordem inversa à que foram informados, um abaixo do outro;  
+d. Calcule e mostre a soma dos valores;  
+e. Calcule e mostre a média dos valores;  
+f. Calcule e mostre a quantidade de valores acima da média calculada;  
+g. Calcule e mostre a quantidade de valores abaixo de sete;  
+h. Encerre o programa com uma mensagem;*
 
 13. Utilize um vetor para resolver o problema a seguir. Uma empresa paga seus vendedores com base em comissões. O vendedor recebe $200 por semana mais 9 por cento de suas vendas brutas daquela semana. Por exemplo, um vendedor que teve vendas brutas de $3000 em uma semana recebe $200 mais 9 por cento de $3000, ou seja, um total de $470. Escreva um programa (usando um array de contadores) que determine quantos vendedores receberam salários nos seguintes intervalos de valores:
 a. $200 - $299
