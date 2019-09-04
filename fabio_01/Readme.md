@@ -8,19 +8,32 @@ Valor: 2 (dois) pontos
 Enviar para fabiojlgomes@gmail.com
 Escreva um programa em C que:
 1. Leia 2 vetores A e B com N elementos, escreva um vetor C, sendo este a junção das vetores A e B. Desta forma, o vetor C deverá ter 2*N elementos.
+
 2. Leia 2 vetores A e B com N elementos, escreva o conjunto união entre as vetores A e B; e o conjunto interseção entre as vetores A e B.
+
 3. Leia um vetor A com 20 elementos, calcule e escreva o valor de S.
+
 S = (A[0] - A[19])2 + (A[1] - A[18])2 + ... + (A[8] - A[11])2 + (A[9] - A[10])2
+
 4. Leia um número (vetor com 8 elementos) na base binária, calcule e escreva este número na base hexadecimal e na base decimal.
+
 5. Leia um vetor A com N elementos e escreva um vetor B com N elementos, conforme a seguinte condição: se índice de A[índice] é par então B[índice] = 0, caso contrário B[índice] = 1.
+
 6. Leia um vetor com N elementos, encontre e escreva o maior e o menor elemento e suas respectivas posições no vetor.
+
 7. Leia um vetor com N elementos, ordene-o e escreva-o em ordem crescente.
-8. Gere um vetor com os N primeiros termos da seqüência de Fibonacci (0,1,1,2,3,5,8,13,21,...). .
+
+8. Gere um vetor com os N primeiros termos da seqüência de Fibonacci (0,1,1,2,3,5,8,13,21,...).
+
 9. Leia um vetor com N números, calcule e escreva a soma e a media dos números lidos.
+
 10. Leia um vetor com tamanho indefinido, calcule e escreva a soma e a media dos números lidos.
+
 11. Um dado é lançado 50 vezes, e o valor correspondente é armazenado em um vetor. Faça um programa que determine o percentual de ocorrências de cada face do dado dentre esses 50 lançamentos.
-12. Leia um número indeterminado de valores, correspondentes a notas, encerrando a entrada de dados quando for informado um valor igual a -1 (que não deve ser armazenado). Após esta entrada de dados, faça:
-a. Mostre a quantidade de valores que foram lidos;
+
+12. Leia um número indeterminado de valores, correspondentes a notas, encerrando a entrada de dados quando for informado um valor igual a -1 (que não deve ser armazenado). Após esta entrada de dados, faça:\n
+
+a. Mostre a quantidade de valores que foram lidos;\n
 b. Exiba todos os valores na ordem em que foram informados, um ao lado do outro;
 c. Exiba todos os valores na ordem inversa à que foram informados, um abaixo do outro;
 d. Calcule e mostre a soma dos valores;
@@ -28,6 +41,7 @@ e. Calcule e mostre a média dos valores;
 f. Calcule e mostre a quantidade de valores acima da média calculada;
 g. Calcule e mostre a quantidade de valores abaixo de sete;
 h. Encerre o programa com uma mensagem;
+
 13. Utilize um vetor para resolver o problema a seguir. Uma empresa paga seus vendedores com base em comissões. O vendedor recebe $200 por semana mais 9 por cento de suas vendas brutas daquela semana. Por exemplo, um vendedor que teve vendas brutas de $3000 em uma semana recebe $200 mais 9 por cento de $3000, ou seja, um total de $470. Escreva um programa (usando um array de contadores) que determine quantos vendedores receberam salários nos seguintes intervalos de valores:
 a. $200 - $299
 b. $300 - $399
@@ -38,7 +52,9 @@ f. $700 - $799
 g. $800 - $899
 h. $900 - $999
 i. $1000 em diante
-14. Em uma competição de salto em distância cada atleta tem direito a cinco saltos. O resultado do atleta será determinado pela média dos cinco valores restantes. Você deve fazer um programa que receba o nome e as cinco distâncias alcançadas pelo atleta em seus saltos e depois informe o nome, os saltos e a média dos saltos. O programa deve ser encerrado quando não for informado o nome do atleta. A saída do programa deve ser conforme o exemplo abaixo:
+
+14. Em uma competição de salto em distância cada atleta tem direito a cinco saltos. O resultado do atleta será determinado pela média dos cinco valores restantes. Você deve fazer um programa que receba o nome e as cinco distâncias alcançadas pelo atleta em seus saltos e depois informe o nome, os saltos e a média dos saltos. O programa deve ser encerrado quando não for informado o nome do atleta. A saída do programa deve ser conforme o exemplo abaixo:\n
+
 Atleta: Rodrigo Curvêllo
 Primeiro Salto: 6.5 m
 Segundo Salto: 6.1 m
@@ -49,7 +65,9 @@ Resultado final:
 Atleta: Rodrigo Curvêllo
 Saltos: 6.5 - 6.1 - 6.2 - 5.4 - 5.3
 Média dos saltos: 5.9 m
+
 15. Uma grande emissora de televisão quer fazer uma enquete entre os seus telespectadores para saber qual o melhor jogador após cada jogo. Para isto, faz-se necessário o desenvolvimento de um programa, que será utilizado pelas telefonistas, para a computação dos votos. Para computar cada voto, a telefonista digitará um número, entre 1 e 23, correspondente ao número da camisa do jogador. Um número de jogador igual zero, indica que a votação foi encerrada. Se um número inválido for digitado, o programa deve ignorá-lo, mostrando uma breve mensagem de aviso, e voltando a pedir outro número. Após o final da votação, o programa deverá exibir:
+
 a. O total de votos computados;
 b. Os números e respectivos votos de todos os jogadores que receberam votos;
 c. O percentual de votos de cada um destes jogadores;
@@ -74,6 +92,7 @@ Jogador Votos %
 10 3 37,5%
 11 1 12,5%
 O melhor jogador foi o número 9, com 4 votos, sendo 50% do total de votos.
+
 16. Uma empresa de pesquisas precisa tabular os resultados da seguinte enquete feita a um grande quantidade de organizações:
 "Qual o melhor Sistema Operacional para uso em servidores?"
 As possíveis respostas são:
@@ -95,6 +114,7 @@ Outro 150 2%
 ------------------- -----
 Total 8800
 O Sistema Operacional mais votado foi o Unix, com 3500 votos, sendo 40% dos votos.
+
 17. As Organizações Tabajara resolveram dar um abono aos seus colaboradores em reconhecimento ao bom resultado alcançado durante o ano que passou. Para isto contratou você para desenvolver um programa que servirá como uma projeção de quanto será gasto com o
 pagamento deste abono. Após reuniões envolvendo a diretoria executiva, a diretoria financeira e os representantes do sindicato laboral, chegou-se a seguinte forma de cálculo:
 a. Cada funcionário receberá o equivalente a 20% do seu salário bruto de dezembro; O piso do abono será de R$ 100,00, isto é, aqueles funcionários cujo salário for muito baixo, recebem este valor mínimo; Neste momento, não se deve ter nenhuma preocupação com colaboradores com tempo menor de casa, descontos, impostos ou outras particularidades. Seu programa deverá permitir a digitação do salário de um número indefinido (desconhecido) de salários. Um valor de salário igual a 0 (zero) encerra a digitação. Após a entrada de todos os dados o programa deverá calcular o valor do abono concedido a cada colaborador, de acordo com a regra definida acima. Ao final, o programa deverá apresentar:
@@ -121,6 +141,7 @@ Foram processados 5 colaboradores
 Total gasto com abonos: R$ 1400.00
 Valor mínimo pago a 3 colaboradores
 Maior valor de abono pago: R$ 900.00
+
 18. Faça um programa que carregue um vetor com os modelos de cinco carros (exemplos de modelos: FUSCA, GOL, VECTRA etc). Carregue um outro vetor com o consumo desses carros, isto é, quantos quilômetros cada um desses carros faz com um litro de combustível. Calcule e mostre:
  O modelo do carro mais econômico;
  Quantos litros de combustível cada um dos carros cadastrados consome para percorrer uma distância de 1000 quilômetros e quanto isto custará, considerando um que a gasolina custe R$ 2,25 o litro. Abaixo segue uma tela de exemplo. A disposição das informações deve ser o mais próxima possível ao exemplo. Os dados são fictícios e podem mudar a cada execução do programa.
@@ -147,6 +168,7 @@ Relatório Final
 4 - vectra - 9.0 - 111.1 litros - R$ 250.00
 5 - peugeot - 14.5 - 69.0 litros - R$ 155.17
 O menor consumo é do peugeot.
+
 19. Sua organização acaba de contratar um estagiário para trabalhar no Suporte de Informática, com a intenção de fazer um levantamento nas sucatas encontradas nesta área. A primeira tarefa dele é testar todos os N mouses que se encontram lá, testando e anotando o estado de cada um deles, para verificar o que se pode aproveitar deles. Foi requisitado que você desenvolva um programa para registrar este levantamento. O programa deverá receber um número indeterminado de entradas, cada uma contendo: um número de identificação do mouse e o tipo de defeito:
 a. necessita da esfera;
 b. necessita de limpeza;
