@@ -6,7 +6,7 @@
 
 2. **Leia 2 vetores A e B com N elementos, escreva o conjunto união entre as vetores A e B; e o conjunto interseção entre as vetores A e B.**
 
-3. **Leia um vetor A com 20 elementos, calcule e escreva o valor de S.** 
+3. **Leia um vetor A com 20 elementos, calcule e escreva o valor de S.**  
     S = (A[0] - A[19])2 + (A[1] - A[18])2 + ... + (A[8] - A[11])2 + (A[9] - A[10])2
 
 4. **Leia um número (vetor com 8 elementos) na base binária, calcule e escreva este número na base hexadecimal e na base decimal.**
