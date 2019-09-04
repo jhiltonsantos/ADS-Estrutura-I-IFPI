@@ -1,11 +1,18 @@
-#Instituto Federal do Piauí - IFPI
-#CST em Análise e Desenvolvimento de Sistemas
-#Disciplina: Estruturas de Dados I
-##Professor: Dr. Fábio Gomes
-##Teresina, 27/08/2019
-##Entrega: 03/09/2019
-##Valor: 2 (dois) pontos
-##Enviar para fabiojlgomes@gmail.com
+Instituto Federal do Piauí - IFPI
+
+CST em Análise e Desenvolvimento de Sistemas
+
+Disciplina: Estruturas de Dados I
+
+Professor: Dr. Fábio Gomes
+
+Teresina, 27/08/2019
+
+Entrega: 03/09/2019
+
+Valor: 2 (dois) pontos
+
+Enviar para fabiojlgomes@gmail.com
 
 #Escreva um programa em C que:
 
