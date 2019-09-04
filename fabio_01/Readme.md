@@ -1,26 +1,17 @@
 ### Instituto Federal do Piauí - IFPI 
 
-#### CST em Análise e Desenvolvimento de Sistemas
-#### Disciplina: Estruturas de Dados I
-#### Professor: Dr. Fábio Gomes
-#### Teresina, 27/08/2019
-#### Entrega: 03/09/2019
-#### Valor: 2 (dois) pontos
-#### Enviar para fabiojlgomes@gmail.com
-
 ### Escreva um programa em C que:
 
-1. Leia 2 vetores A e B com N elementos, escreva um vetor C, sendo este a junção das vetores A e B. Desta forma, o vetor C deverá ter 2*N elementos.
+1. **Leia 2 vetores A e B com N elementos, escreva um vetor C, sendo este a junção das vetores A e B. Desta forma, o vetor C deverá ter 2*N elementos.**
 
-2. Leia 2 vetores A e B com N elementos, escreva o conjunto união entre as vetores A e B; e o conjunto interseção entre as vetores A e B.
+2. **Leia 2 vetores A e B com N elementos, escreva o conjunto união entre as vetores A e B; e o conjunto interseção entre as vetores A e B.**
 
-3. Leia um vetor A com 20 elementos, calcule e escreva o valor de S.
+3. **Leia um vetor A com 20 elementos, calcule e escreva o valor de S.**
+    S = (A[0] - A[19])2 + (A[1] - A[18])2 + ... + (A[8] - A[11])2 + (A[9] - A[10])2
 
-S = (A[0] - A[19])2 + (A[1] - A[18])2 + ... + (A[8] - A[11])2 + (A[9] - A[10])2
+4. **Leia um número (vetor com 8 elementos) na base binária, calcule e escreva este número na base hexadecimal e na base decimal.**
 
-4. Leia um número (vetor com 8 elementos) na base binária, calcule e escreva este número na base hexadecimal e na base decimal.
-
-5. Leia um vetor A com N elementos e escreva um vetor B com N elementos, conforme a seguinte condição: se índice de A[índice] é par então B[índice] = 0, caso contrário B[índice] = 1.
+5. **Leia um vetor A com N elementos e escreva um vetor B com N elementos, conforme a seguinte condição: se índice de A[índice] é par então B[índice] = 0, caso contrário B[índice] = 1.**
 
 6. Leia um vetor com N elementos, encontre e escreva o maior e o menor elemento e suas respectivas posições no vetor.
 
