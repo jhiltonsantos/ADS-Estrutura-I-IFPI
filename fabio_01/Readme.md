@@ -125,25 +125,25 @@ Você foi contratado para desenvolver um programa que leia os dados da enquete e
 
 **A tela abaixo é um exemplo de execução do programa, apenas para fins ilustrativos. Os valores podem mudar a cada execução do programa.**  
 
-        *Projeção de Gastos com Abono*  
+        Projeção de Gastos com Abono  
         ============================  
-        *Salário: 1000*  
-        *Salário: 300*  
-        *Salário: 500*  
-        *Salário: 100*  
-        *Salário: 4500*  
-        *Salário: 0*  
-        *Salário - Abono*  
-        *R$ 1000.00 - R$ 200.00*  
-        *R$ 300.00 - R$ 100.00*  
-        *R$ 500.00 - R$ 100.00*  
-        *R$ 100.00 - R$ 100.00*  
-        *R$ 4500.00 - R$ 900.00*  
+        Salário: 1000  
+        Salário: 300  
+        Salário: 500  
+        Salário: 100  
+        Salário: 4500  
+        Salário: 0  
+        Salário - Abono  
+        R$ 1000.00 - R$ 200.00  
+        R$ 300.00 - R$ 100.00  
+        R$ 500.00 - R$ 100.00  
+        R$ 100.00 - R$ 100.00  
+        R$ 4500.00 - R$ 900.00  
 
-        *Foram processados 5 colaboradores*  
-        *Total gasto com abonos: R$ 1400.00*  
-        *Valor mínimo pago a 3 colaboradores*  
-        *Maior valor de abono pago: R$ 900.00*
+        Foram processados 5 colaboradores  
+        Total gasto com abonos: R$ 1400.00  
+        Valor mínimo pago a 3 colaboradores  
+        Maior valor de abono pago: R$ 900.00
 
 18. **Faça um programa que carregue um vetor com os modelos de cinco carros (exemplos de modelos: FUSCA, GOL, VECTRA etc). Carregue um outro vetor com o consumo desses carros, isto é, quantos quilômetros cada um desses carros faz com um litro de combustível. Calcule e mostre:**  
     * O modelo do carro mais econômico;  
@@ -180,7 +180,6 @@ Você foi contratado para desenvolver um programa que leia os dados da enquete e
     b. necessita de limpeza;  
     c. necessita troca do cabo ou conector;  
     d. quebrado ou inutilizado.*  
-
 **Uma identificação igual a zero encerra o programa. Ao final o programa deverá emitir o seguinte relatório:**  
 
         Quantidade de mouses: 100  
