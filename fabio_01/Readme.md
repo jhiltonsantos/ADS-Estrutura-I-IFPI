@@ -46,18 +46,18 @@ i. $1000 em diante*
 
 14. **Em uma competição de salto em distância cada atleta tem direito a cinco saltos. O resultado do atleta será determinado pela média dos cinco valores restantes. Você deve fazer um programa que receba o nome e as cinco distâncias alcançadas pelo atleta em seus saltos e depois informe o nome, os saltos e a média dos saltos. O programa deve ser encerrado quando não for informado o nome do atleta. A saída do programa deve ser conforme o exemplo abaixo:**  
 
-*Atleta: Rodrigo Curvêllo  
+        *Atleta: Rodrigo Curvêllo  *
 
-Primeiro Salto: 6.5 m  
-Segundo Salto: 6.1 m  
-Terceiro Salto: 6.2 m  
-Quarto Salto: 5.4 m  
-Quinto Salto: 5.3 m  
+        *Primeiro Salto: 6.5 m  *
+        *Segundo Salto: 6.1 m  *
+        *Terceiro Salto: 6.2 m  *
+        *Quarto Salto: 5.4 m  *
+        *Quinto Salto: 5.3 m  *
 
-Resultado final:  
-Atleta: Rodrigo Curvêllo  
-Saltos: 6.5 - 6.1 - 6.2 - 5.4 - 5.3  
-Média dos saltos: 5.9 m*
+        *Resultado final:  *
+        *Atleta: Rodrigo Curvêllo  *
+        *Saltos: 6.5 - 6.1 - 6.2 - 5.4 - 5.3  *
+        *Média dos saltos: 5.9 m*
 
 15. Uma grande emissora de televisão quer fazer uma enquete entre os seus telespectadores para saber qual o melhor jogador após cada jogo. Para isto, faz-se necessário o desenvolvimento de um programa, que será utilizado pelas telefonistas, para a computação dos votos. Para computar cada voto, a telefonista digitará um número, entre 1 e 23, correspondente ao número da camisa do jogador. Um número de jogador igual zero, indica que a votação foi encerrada. Se um número inválido for digitado, o programa deve ignorá-lo, mostrando uma breve mensagem de aviso, e voltando a pedir outro número. Após o final da votação, o programa deverá exibir:
 
