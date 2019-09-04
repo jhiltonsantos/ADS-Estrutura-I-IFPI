@@ -15,7 +15,7 @@
 
 7. **Leia um vetor com N elementos, ordene-o e escreva-o em ordem crescente.**
 
-8. **Gere um vetor com os N primeiros termos da seqüência de Fibonacci *(0,1,1,2,3,5,8,13,21,...)*.**
+8. **Gere um vetor com os N primeiros termos da seqüência de Fibonacci** *(0,1,1,2,3,5,8,13,21,...)***.**
 
 9. **Leia um vetor com N números, calcule e escreva a soma e a media dos números lidos.**
 
@@ -33,29 +33,31 @@ f. Calcule e mostre a quantidade de valores acima da média calculada;
 g. Calcule e mostre a quantidade de valores abaixo de sete;  
 h. Encerre o programa com uma mensagem;*
 
-13. Utilize um vetor para resolver o problema a seguir. Uma empresa paga seus vendedores com base em comissões. O vendedor recebe $200 por semana mais 9 por cento de suas vendas brutas daquela semana. Por exemplo, um vendedor que teve vendas brutas de $3000 em uma semana recebe $200 mais 9 por cento de $3000, ou seja, um total de $470. Escreva um programa (usando um array de contadores) que determine quantos vendedores receberam salários nos seguintes intervalos de valores:
-a. $200 - $299
-b. $300 - $399
-c. $400 - $499
-d. $500 - $599
-e. $600 - $699
-f. $700 - $799
-g. $800 - $899
-h. $900 - $999
-i. $1000 em diante
+13. **Utilize um vetor para resolver o problema a seguir. Uma empresa paga seus vendedores com base em comissões. O vendedor recebe $200 por semana mais 9 por cento de suas vendas brutas daquela semana. Por exemplo, um vendedor que teve vendas brutas de $3000 em uma semana recebe $200 mais 9 por cento de $3000, ou seja, um total de $470. Escreva um programa (usando um array de contadores) que determine quantos vendedores receberam salários nos seguintes intervalos de valores:**  
+*a. $200 - $299  
+b. $300 - $399  
+c. $400 - $499  
+d. $500 - $599  
+e. $600 - $699  
+f. $700 - $799  
+g. $800 - $899  
+h. $900 - $999  
+i. $1000 em diante*
 
-14. Em uma competição de salto em distância cada atleta tem direito a cinco saltos. O resultado do atleta será determinado pela média dos cinco valores restantes. Você deve fazer um programa que receba o nome e as cinco distâncias alcançadas pelo atleta em seus saltos e depois informe o nome, os saltos e a média dos saltos. O programa deve ser encerrado quando não for informado o nome do atleta. A saída do programa deve ser conforme o exemplo abaixo:\n
+14. **Em uma competição de salto em distância cada atleta tem direito a cinco saltos. O resultado do atleta será determinado pela média dos cinco valores restantes. Você deve fazer um programa que receba o nome e as cinco distâncias alcançadas pelo atleta em seus saltos e depois informe o nome, os saltos e a média dos saltos. O programa deve ser encerrado quando não for informado o nome do atleta. A saída do programa deve ser conforme o exemplo abaixo:**  
 
-Atleta: Rodrigo Curvêllo
-Primeiro Salto: 6.5 m
-Segundo Salto: 6.1 m
-Terceiro Salto: 6.2 m
-Quarto Salto: 5.4 m
-Quinto Salto: 5.3 m
-Resultado final:
-Atleta: Rodrigo Curvêllo
-Saltos: 6.5 - 6.1 - 6.2 - 5.4 - 5.3
-Média dos saltos: 5.9 m
+*Atleta: Rodrigo Curvêllo  
+
+Primeiro Salto: 6.5 m  
+Segundo Salto: 6.1 m  
+Terceiro Salto: 6.2 m  
+Quarto Salto: 5.4 m  
+Quinto Salto: 5.3 m  
+
+Resultado final:  
+Atleta: Rodrigo Curvêllo  
+Saltos: 6.5 - 6.1 - 6.2 - 5.4 - 5.3  
+Média dos saltos: 5.9 m*
 
 15. Uma grande emissora de televisão quer fazer uma enquete entre os seus telespectadores para saber qual o melhor jogador após cada jogo. Para isto, faz-se necessário o desenvolvimento de um programa, que será utilizado pelas telefonistas, para a computação dos votos. Para computar cada voto, a telefonista digitará um número, entre 1 e 23, correspondente ao número da camisa do jogador. Um número de jogador igual zero, indica que a votação foi encerrada. Se um número inválido for digitado, o programa deve ignorá-lo, mostrando uma breve mensagem de aviso, e voltando a pedir outro número. Após o final da votação, o programa deverá exibir:
 
