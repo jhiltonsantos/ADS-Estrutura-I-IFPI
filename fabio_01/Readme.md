@@ -1,14 +1,14 @@
-# Instituto Federal do Piauí - IFPI 
+### Instituto Federal do Piauí - IFPI 
 
-## CST em Análise e Desenvolvimento de Sistemas
-## Disciplina: Estruturas de Dados I
-## Professor: Dr. Fábio Gomes
-## Teresina, 27/08/2019
-## Entrega: 03/09/2019
-## Valor: 2 (dois) pontos
-## Enviar para fabiojlgomes@gmail.com
+#### CST em Análise e Desenvolvimento de Sistemas
+#### Disciplina: Estruturas de Dados I
+#### Professor: Dr. Fábio Gomes
+#### Teresina, 27/08/2019
+#### Entrega: 03/09/2019
+#### Valor: 2 (dois) pontos
+#### Enviar para fabiojlgomes@gmail.com
 
-# Escreva um programa em C que:
+### Escreva um programa em C que:
 
 1. Leia 2 vetores A e B com N elementos, escreva um vetor C, sendo este a junção das vetores A e B. Desta forma, o vetor C deverá ter 2*N elementos.
 
