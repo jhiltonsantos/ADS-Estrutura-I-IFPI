@@ -1,11 +1,12 @@
-###Exercício 02  
+### Exercício 02  
 
-####Escreva um programa em C utilizando vetor de registros, que atenda os seguintes requisitos:  
+#### Escreva um programa em C utilizando vetor de registros, que atenda os seguintes requisitos:  
     **1. O programa deve manipular no mínimo 02 (duas) fontes de dados;**  
-    **2. O programa deve implementar os conceitos de chave primária e chave estrangeira.**
-CHAVE PRIMÁRIA: campo que serve para identificar unicamente um registro, não pode ser duplicado. Exemplo: matrícula, CPF, número da conta corrente etc.
-CHAVE ESTRANGEIRA: campo que faz referência a um campo em um outra fonte de dados. O valor do campo referenciado deve existir na fonte referenciada.
-Exemplo:
+    **2. O programa deve implementar os conceitos de chave primária e chave estrangeira.**  
+    *CHAVE PRIMÁRIA: campo que serve para identificar unicamente um registro, não pode ser duplicado. Exemplo: matrícula, CPF, número da conta corrente etc.*  
+    *CHAVE ESTRANGEIRA: campo que faz referência a um campo em um outra fonte de dados. O valor do campo referenciado deve existir na fonte referenciada.*  
+    
+    #### *Exemplo:*
 Fonte de dados de alunos (Matricula é a chave primária)
 Matricula
 Nome
