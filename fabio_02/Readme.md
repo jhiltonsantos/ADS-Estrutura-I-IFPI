@@ -10,11 +10,11 @@
 
 Fonte de dados de alunos (Matricula é a chave primária)
 
-    Matricula |      Nome       | Data de Nascimento | Endereço  
-    :-------: |      :--:       | :----------------: | :------:
-    123456    | Raimundo Nonato | 08/04/1980         | Avenida Frei Serafim, 1234 
-    123456    | João Antonio    | 20/03/1981         | Avenida Miguel Rosa, 4321
-    345678    | Maria do Amparo | 15/08/1979         | Avenida Campos Sales, 1212  
+Matricula |      Nome       | Data de Nascimento | Endereço  
+:-------: |      :--:       | :----------------: | :------:
+123456    | Raimundo Nonato | 08/04/1980         | Avenida Frei Serafim, 1234 
+123456    | João Antonio    | 20/03/1981         | Avenida Miguel Rosa, 4321
+345678    | Maria do Amparo | 15/08/1979         | Avenida Campos Sales, 1212  
 
 ↑
 Fonte de dados de notas (Matricula_Aluno é a chave estrangeira)
