@@ -9,7 +9,9 @@
 #### *Exemplo:*  
                        *Fonte de dados de alunos (Matricula é a chave primária)*
       |Matricula|Nome           |Data de Nascimento|        Endereço          |
+      -------------------------------------------------------------------------
       |123456   |Raimundo Nonato|     08/04/1980   |Avenida Frei Serafim, 1234|
+      -------------------------------------------------------------------------
       |123456
 João Antonio
 20/03/1981
