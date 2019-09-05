@@ -1,4 +1,4 @@
-## **Exercício 02**
+## *Exercício 02*
 
 ### Escreva um programa em C utilizando vetor de registros, que atenda os seguintes requisitos:  
 **1. O programa deve manipular no mínimo 02 (duas) fontes de dados;**  
@@ -34,6 +34,6 @@ Matricula_Aluno | Disciplina | Nota 1 | Nota 2 | Nota 3
      Sistema de Folha de Pagamento (cadastro de funcionários, dependentes etc.)  
      Sistema de Controle de Vendas (cadastro de produtos, clientes, vendas etc.)  
 
-#### **Disposições Finais:**  
+#### *Disposições Finais:*  
 *a) O programa deverá implementar as operações de inclusão, exclusão, consulta e relatório para cada fonte de dados.*  
 *b) No caso de existência de cópias (programas iguais), os envolvidos terão suas notas iguais a 0 (zero).*
