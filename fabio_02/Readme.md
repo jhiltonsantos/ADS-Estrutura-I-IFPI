@@ -16,9 +16,10 @@ Matricula |      Nome       | Data de Nascimento | Endereço
 123456    | João Antonio    | 20/03/1981         | Avenida Miguel Rosa, 4321
 345678    | Maria do Amparo | 15/08/1979         | Avenida Campos Sales, 1212  
 
-  ↑  
-  **ERRADO (MESMA CHAVE)**  
-  ↓                 Fonte de dados de notas (**Matricula_Aluno** é a chave estrangeira)  
+   ↑  
+     **ERRADO (MESMA CHAVE)**  
+   ↓  
+  Fonte de dados de notas (**Matricula_Aluno** é a chave estrangeira)  
 
 
 Matricula_Aluno | Disciplina | Nota 1 | Nota 2 | Nota 3
