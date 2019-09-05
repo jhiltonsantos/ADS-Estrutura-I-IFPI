@@ -6,12 +6,13 @@
 *CHAVE PRIMÁRIA: campo que serve para identificar unicamente um registro, não pode ser duplicado. Exemplo: matrícula, CPF, número da conta corrente etc.*  
 *CHAVE ESTRANGEIRA: campo que faz referência a um campo em um outra fonte de dados. O valor do campo referenciado deve existir na fonte referenciada.*  
 
-#### *Exemplo:*
+#### *Exemplo:*  
+
 Fonte de dados de alunos (Matricula é a chave primária)
-Matricula
-Nome
-Data de Nascimento
-Endereço 123456
+
+Matricula | Nome | Data de Nascimento | Endereço  
+:-------: | :--: | :----------------: | :------:
+123456
 Raimundo Nonato
 08/04/1980
 Avenida Frei Serafim, 1234 123456
