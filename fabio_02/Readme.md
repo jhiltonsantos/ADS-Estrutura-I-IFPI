@@ -7,9 +7,9 @@
 *CHAVE ESTRANGEIRA: campo que faz referência a um campo em um outra fonte de dados. O valor do campo referenciado deve existir na fonte referenciada.*  
 
 #### *Exemplo:*  
-                       *Fonte de dados de alunos (Matricula é a chave primária)*
-      | Matricula | Nome           | Data de Nascimento |        Endereço          |
-      |---------|---------------|------------------|--------------------------|
+                       *Fonte de dados de alunos (Matricula é a chave primária)*  
+      Matricula | Nome           | Data de Nascimento |        Endereço     
+      :-------: | -------------- | ------------------ | --------------------:
       | 123456   | Raimundo Nonato |     08/04/1980   | Avenida Frei Serafim, 1234 |
       | 123456
 João Antonio
