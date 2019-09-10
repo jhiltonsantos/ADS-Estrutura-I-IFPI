@@ -130,6 +130,7 @@ bool valida_data(int dia, int mes, int ano){
             return true;
         }
         // ANO BISSEXTO
+        // Os anos bissextos são múltiplos de 4, não múltiplos de 100 (1900 não é bissexto) e múltiplos de 400 (2000 é bissexto)
         else if((dia==29) && (mes==2) && ((ano%4==0) && (ano%400==0 || ano%100!=0))){
             return true;
         }

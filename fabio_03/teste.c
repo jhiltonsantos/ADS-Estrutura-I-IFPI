@@ -8,28 +8,12 @@ void desenha(){
 
 int main(void){
 
-    desenha();
+    int numero;
+    numero = -11;
 
-    char palavra[100];
-    printf("Digite a palavra: ");
+    int modulo;
+    modulo = abs(numero);
 
-    setbuf(stdin, 0);
-    fgets(palavra, 100, stdin);
-    palavra[strlen(palavra-1)] = '\0';
-
-    printf("A palavra eh: %s", palavra);
-
-    int x = 20;
-    int *p;
-    p = &x;
-
-    printf("%d", p);
-
-    *p = 5;
-
-    printf("\nNovo valor de x: %d", x);
-
-    desenha();
-
+    printf("Modulo: %d", modulo);
 
 }
