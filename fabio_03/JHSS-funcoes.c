@@ -130,7 +130,8 @@ bool valida_data(int dia, int mes, int ano){
             return true;
         }
         // ANO BISSEXTO
-        // Os anos bissextos são múltiplos de 4, não múltiplos de 100 (1900 não é bissexto) e múltiplos de 400 (2000 é bissexto)
+        // Os anos bissextos são múltiplos de 4, não múltiplos de 100 (1900 não é bissexto)
+        // e múltiplos de 400 (2000 é bissexto)
         else if((dia==29) && (mes==2) && ((ano%4==0) && (ano%400==0 || ano%100!=0))){
             return true;
         }
@@ -138,6 +139,44 @@ bool valida_data(int dia, int mes, int ano){
             return true;
         }
     }
+}
+
+
+int verifica_mmc(int num1, int num2){
+    int maior = num1;
+    if (num1 < num2){
+        maior = num2;
+    }
+    
+    int i=0;
+    while (i == 0){
+        if ((maior%num1==0) && (maior%num2==0)){
+            i = 1;
+            return maior;
+        }
+        else{
+            maior += 1;
+        }
+    }
+}
+
+
+int verifica_mdc(int num1, int num2){
+    int n1 = num1;
+    int n2 = num2;
+    int resto;
+    if (num1 < num2){
+        n1 = num2;
+        n2 = num1;
+    }
+
+    while (n2!=0){
+        resto = n1%n2;
+        n1 = n2;
+        n2 = resto;
+    }
+    
+    return n1;
 }
 
 
