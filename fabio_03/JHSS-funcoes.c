@@ -47,7 +47,9 @@ int area_triangulo(int altura, int base){
 
 
 int area_quadrado(int lado){
-    return pow(lado, 2);
+    int area;
+    area = pow(lado, 2);;
+    return area;
 }
 
 
