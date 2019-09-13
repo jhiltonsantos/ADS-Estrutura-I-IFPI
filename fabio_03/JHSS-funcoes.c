@@ -4,6 +4,8 @@
 #include <math.h>
 #include <stdbool.h>
 
+#define pi 3.14
+
 
 float velocidade_km_p_m(float vel_m_por_seg){
     float vel_km_por_h;
@@ -47,9 +49,10 @@ int area_triangulo(int altura, int base){
 
 
 int area_quadrado(int lado){
-    int area;
-    area = pow(lado, 2);;
-    return area;
+    int valor;
+    valor = pow(lado, 2);
+    return valor;
+
 }
 
 
@@ -60,7 +63,7 @@ int area_retangulo(int base, int altura){
 
 float comprimento_circunferencia(float raio){
     float comprimento;
-    comprimento = 2 * (3.14) * raio;
+    comprimento = 2 * pi * raio;
     
     return comprimento;
 }
@@ -68,7 +71,7 @@ float comprimento_circunferencia(float raio){
 
 float volume_circunferencia(float raio){
     float volume;
-    volume = (4*(3.14)*(pow(raio, 3)))/3;
+    volume = (4*pi*(pow(raio, 3))) / 3;
 
     return volume;
 }
@@ -91,12 +94,10 @@ int temperatura_celsius(int temp_F){
 
 
 int calcula_fatorial(int numero){
-    int fat;
-    for (fat = 1; numero > 1; numero--){
-        fat *= numero;
+    if (numero == 0){
+        return 1;
     }
-
-    return fat;
+    return numero * calcula_fatorial(numero-1);    
 }
 
 
@@ -189,4 +190,8 @@ bool valida_ano_bissexto(int ano){
     else{
         return false;
     }
+}
+
+int main(void){
+    
 }
