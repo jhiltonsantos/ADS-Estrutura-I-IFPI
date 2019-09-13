@@ -2,39 +2,37 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void){
-    char data[30];
-    char dia[3], mes[3], ano[5];
+#define tam 3
 
-    printf("Digite a data: ");
-    fgets(data, sizeof(data), stdin);
-    int tamanho = strlen(data);
+
+int main(void){
+    char horario[30];
+    char hora[tam], minuto[tam], segundo[tam];
+
+    printf("Digite a a hora: ");
+    fgets(horario, sizeof(horario), stdin);
+    int tamanho = strlen(horario);
 
     for (int i=0, pos = 0; i < tamanho; i++, pos++){
-        
-        if (data[pos] == '/'){
+        if (horario[pos] == ':'){
             if (pos==2){
-                dia[0] = data[pos-2];
-                dia[1] = data[pos-1];
-                dia[2] = '\0';
+                hora[0] = horario[pos-2];
+                hora[1] = horario[pos-1];
+                hora[2] = '\0';
             }
             else if(pos==5){
-                mes[0] = data[pos-2];
-                mes[1] = data[pos-1];
-                mes[2] = '\0';
-
-                for (int j=0,k=6; j < 5; j++,k++)
-                {
-                    ano[j] = data[k];
-                    ano[4] = '\0';
-                }
-                
+                minuto[0] = horario[pos-2];
+                minuto[1] = horario[pos-1];
+                minuto[2] = '\0';            
             }
         }
-        
-        
+        else if(pos>5){
+            segundo[0] = horario[pos-2];
+            segundo[1] = horario[pos-1];
+            segundo[2] = '\0';            
+        }
     }
-
-    printf("\nDia: %s", dia);
+    
+    printf("\n\n%s hora(s), %s minuto(s) e %s segundo(s).\n\n", hora, minuto, segundo);
 
 }

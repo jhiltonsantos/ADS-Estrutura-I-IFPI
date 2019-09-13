@@ -191,7 +191,3 @@ bool valida_ano_bissexto(int ano){
         return false;
     }
 }
-
-int main(void){
-    
-}
