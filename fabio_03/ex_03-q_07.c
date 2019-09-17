@@ -8,12 +8,10 @@
 
 int main(){
     char *nome, *primeiro, *ultimo, *formatado;
-    char *v;
     nome = malloc(tam * sizeof(char));
     primeiro = malloc(tam * sizeof(char));
     ultimo = malloc(tam * sizeof(char));
     formatado = malloc(tam * sizeof(char));
-    v = malloc(tam * sizeof(char));
 
     printf("\nDigite seu nome completo: ");
     fgets(nome, tam, stdin);   
@@ -71,7 +69,6 @@ int main(){
     free(primeiro);    
     free(ultimo);    
     free(formatado);  
-    free(v);    
 
     return 0;
     system("PAUSE");
