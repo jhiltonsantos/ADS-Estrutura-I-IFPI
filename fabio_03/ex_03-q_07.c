@@ -1,39 +1,49 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <conio.h>
-#include <ncurses.h>
+#include <conio.h>
+//#include <ncurses.h>
 
 #define tam 50
 
-int main(void){
-    char *nome, *primeiro, *ultimo;
+int main(){
+    char *nome, *primeiro, *ultimo, *formatado;
+    char *v;
     nome = malloc(tam * sizeof(char));
     primeiro = malloc(tam * sizeof(char));
     ultimo = malloc(tam * sizeof(char));
+    formatado = malloc(tam * sizeof(char));
+    v = malloc(tam * sizeof(char));
 
     printf("\nDigite seu nome completo: ");
     fgets(nome, tam, stdin);   
     
     int quantidade_palavras = 1;
+    int tamanho = (strlen(nome));
+    int k = tamanho;
 
-    for(int i=0; i<(strlen(nome)); i++){
+    while (nome[k] != ' '){
+            k --;
+    }
+    k++;
+
+    for(int i=0; i < tamanho; i++){
+
         if ((nome[i] == ' ') && (quantidade_palavras==1)){
             for (int j = 0; j < i; j++){
                 primeiro[j] = nome[j];
-            }        
+            }
+            primeiro[i] = '\0';        
         }
 
-        if (i == strlen(nome)-1){
-            for (int j = 0, k=(strlen(nome)-1); j < i; j++, k--){
-                while (nome[k] != ' '){
-                    ultimo[j] = nome[k+];
-                    k --;
-                    j ++;
-                }
-                break;
+        if (i == (tamanho-1)){
+            int j = 0;
+            while (k < (tamanho-1)){
+                    ultimo[j] = nome[k];
+                    j++;
+                    k++;
             }
-                    
+            ultimo[k-1] = '\0';                    
         }
 
         if (nome[i] == ' '){
@@ -41,13 +51,28 @@ int main(void){
         }
     }
 
-    //parou no inverso
+    int x, y;
+    for(x=0; x<(strlen(ultimo)-1); x++){
+        formatado[x] = ultimo[x];
+    }
+    
+    strcpy(&formatado[x], "/");
+    x++;
+    
+    for(y=0; y<(strlen(primeiro)); y++, x++){
+        formatado[x] = primeiro[y];
+    }
+    formatado[x] = '\0';
+    strupr(formatado);
+    printf("%s", formatado);
 
-
-    printf("\n\nO primeiro nome eh: %s. \n", primeiro);
-    printf("O ultimo nome eh: %s. \n", ultimo);
 
     free(nome);    
     free(primeiro);    
     free(ultimo);    
+    free(formatado);  
+    free(v);    
+
+    return 0;
+    system("PAUSE");
 }
