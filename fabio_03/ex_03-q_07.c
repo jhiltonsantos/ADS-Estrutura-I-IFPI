@@ -1,86 +1,75 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <conio.h>
-//#include <ncurses.h>
 #include <string.h>
+//#include <conio.h>
+#include <ncurses.h>
 
 #define tam 50
 
-int main(void)
-{
-    char *nome, *ultimo, *outros, *saida;
+int main(){
+    char *nome, *primeiro, *ultimo, *formatado;
     nome = malloc(tam * sizeof(char));
+    primeiro = malloc(tam * sizeof(char));
     ultimo = malloc(tam * sizeof(char));
-    outros = malloc(tam * sizeof(char));
-    saida = malloc(tam * sizeof(char));
+    formatado = malloc(tam * sizeof(char));
 
-    printf("Digite seu nome: ");
-    fgets(nome, tam, stdin);
-    int tamanho = strlen(nome);
-
+    printf("\nDigite seu nome completo: ");
+    fgets(nome, tam, stdin);   
+    
+    int quantidade_palavras = 1;
+    int tamanho = (strlen(nome));
     int k = tamanho;
-    while (nome[k] != ' ')
-    {
-        k--;
+
+    while (nome[k] != ' '){
+            k --;
     }
     k++;
 
-    int x = 0;
-    outros[0] = nome[0];
-    strcpy(&outros[1], ".");
-    x++;
+    for(int i=0; i < tamanho; i++){
 
-    for (int i = 0; i < (k - 1); i++)
-    {
-        if ((nome[i] == ' '))
-        {
-            if (i != k)
-            {
-                x++;
-                outros[x] = nome[i];
-                outros[x + 1] = nome[i + 1];
-                strcpy(&outros[x + 2], ".");
-                x = x + 2;
+        if ((nome[i] == ' ') && (quantidade_palavras==1)){
+            for (int j = 0; j < i; j++){
+                primeiro[j] = nome[j];
             }
+            primeiro[i] = '\0';        
         }
-    }
-    outros[x + 1] = '\0';
 
-    for (int i = 0; i < tamanho; i++)
-    {
-        if (i == (tamanho - 1))
-        {
+        if (i == (tamanho-1)){
             int j = 0;
-            while (k < (tamanho - 1))
-            {
-                ultimo[j] = nome[k];
-                j++;
-                k++;
+            while (k < (tamanho-1)){
+                    ultimo[j] = nome[k];
+                    j++;
+                    k++;
             }
-            ultimo[k - 1] = '\0';
+            ultimo[k-1] = '\0';                    
+        }
+
+        if (nome[i] == ' '){
+            quantidade_palavras++;
         }
     }
 
-    // Concatenar Saida
-    int y;
-    for (x = 0; x < (strlen(ultimo)); x++)
-    {
-        saida[x] = ultimo[x];
+    int x, y;
+    for(x=0; x<(strlen(ultimo)); x++){
+        formatado[x] = ultimo[x];
     }
-
-    strcpy(&saida[x], " ");
+    
+    strcpy(&formatado[x], "/");
     x++;
-
-    for (y = 0; y < (strlen(outros)); y++, x++)
-    {
-        saida[x] = outros[y];
+    
+    for(y=0; y<(strlen(primeiro)); y++, x++){
+        formatado[x] = primeiro[y];
     }
-    saida[x] = '\0';
-    //toupper(saida);
+    formatado[x] = '\0';
+    //strupr(formatado);
+    printf("%s\n\n", formatado);
 
-    printf("\n%s\n\n", saida);
 
-    free(nome);
-    free(ultimo);
-    free(outros);
+    free(nome);    
+    free(primeiro);    
+    free(ultimo);    
+    free(formatado);  
+
+    return 0;
+    system("PAUSE");
 }
