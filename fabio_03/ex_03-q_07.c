@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
-//#include <ncurses.h>
+//#include <conio.h>
+#include <ncurses.h>
 
 #define tam 50
 
@@ -50,7 +50,7 @@ int main(){
     }
 
     int x, y;
-    for(x=0; x<(strlen(ultimo)-1); x++){
+    for(x=0; x<(strlen(ultimo)); x++){
         formatado[x] = ultimo[x];
     }
     
@@ -61,8 +61,8 @@ int main(){
         formatado[x] = primeiro[y];
     }
     formatado[x] = '\0';
-    strupr(formatado);
-    printf("%s", formatado);
+    //strupr(formatado);
+    printf("%s\n\n", formatado);
 
 
     free(nome);    
