@@ -22,14 +22,14 @@ void inicializacao(pilha *p){
 }
 
 
-void empilhar(pilha *p, int e){
+void empilhar(pilha *p, int valor){
     p-> topo = p-> topo + 1;
-    p->elemento[p->topo] = e;
+    p->elemento[p->topo] = valor;
 }
 
 
-char desempilhar(pilha *p){
-    char valor;
+int desempilhar(pilha *p){
+    int valor;
 
     valor = p->elemento[p->topo];
     p->topo = p->topo - 1;
@@ -67,31 +67,55 @@ void mostrarPinos(pilha *p1, pilha *p2, pilha *p3){
 
 
 int tamanho(pilha *p){
-    return p->topo;
+    return (p->topo + 1);
 }
 
 
-int topoPilha(pilha *p){
-    if (p -> topo == 0){
-        return -1;
-    }
-    return p->elemento[p->topo-1];
+int valorTopo(pilha *p){
+    return p->elemento[p->topo];
 }
 
 
 int novoMovimento(pilha *p1, pilha *p2){
-    if ((tamanho(p1)) > 0 && (tamanho(p2) <= 0 || topoPilha(p1) < topoPilha(p2))){
-        empilhar(p2, desempilhar(p1));
-        return 1;
+    int aux;
+    if (valorTopo(p1)>-1)
+    {
+        aux = desempilhar(p1);
+        empilhar(p2, aux);
     }
     else{
-        printf("Movimento nao permitido  --novoMovimento()");
-        return 0;
+        printf("Movimento nao permitido!!! --novoMovimento()");
     }
+    
 }
 
 
 int movimentar(pilha *p1, pilha *p2, pilha *p3){
+    
+    // INFORMACOES
+    int exibir[3];
+    exibir[0] = tamanho(&torreX);
+    printf("\nTamanho torre X: %d", exibir[0]);
+
+    exibir[1] = tamanho(&torreY);
+    printf("\nTamanho torre Y: %d", exibir[1]);
+
+    exibir[2] = tamanho(&torreZ);
+    printf("\nTamanho torre Z: %d\n\n", exibir[2]);
+
+    int valor_topo[3];
+    valor_topo[0] = valorTopo(p1);
+    printf("\nValor Topo X: %d", valor_topo[0]);
+
+    valor_topo[1] = valorTopo(p2);
+    printf("\nValor Topo Y: %d", valor_topo[1]);
+
+    valor_topo[2] = valorTopo(p3);
+    printf("\nValor Topo Z: %d\n", valor_topo[2]);
+
+
+
+
     int movimento;
     printf("\n\n        -----------------------------\n");
     printf("        | X -> Y -- 1 | X -> Z -- 2 |\n");
@@ -207,14 +231,14 @@ void menu(){
             break;
 
         case 4:
-            if (tamanho(&torreY) == 0)
+            /*if (tamanho(&torreY) == 0)
             {
                 opcao == 5;
             }
             else
             {
                 opcao == 2;
-            }
+            }*/
 
         case 5:
             //esvaziarTorres(&torreX);
