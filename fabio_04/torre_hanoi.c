@@ -1,5 +1,5 @@
-//#include <conio.h>
-#include <ncurses.h>
+#include <conio.h>
+//#include <ncurses.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,9 +12,9 @@ typedef struct{
     char elemento[tam];
 } pilha;
 
-pilha torreA;
-pilha torreB;
-pilha torreC;
+pilha torreX;
+pilha torreY;
+pilha torreZ;
 
 
 void inicializacao(pilha *p){
@@ -58,11 +58,11 @@ void mostrarTorre(pilha *p){
 
 void mostrarPinos(pilha *p1, pilha *p2, pilha *p3){
     mostrarTorre(p1);
-    printf("\nX\
-    Y\
-    Z\n");
+    printf("\nX\n");
     mostrarTorre(p2);
+    printf("\nY\n");
     mostrarTorre(p3);
+    printf("\nZ\n");
 }
 
 
@@ -85,84 +85,68 @@ int novoMovimento(pilha *p1, pilha *p2){
         return 1;
     }
     else{
-        printf("Movimento nao permitido");
+        printf("Movimento nao permitido  --novoMovimento()");
         return 0;
     }
 }
 
 
-char movimentar(pilha *p1, pilha *p2, pilha *p3){
-    char mover[3] = {0,0,'\0'};
-    printf("Digite o proximo movimento: ");
-    scanf("%c%c", mover, mover-1);
+int movimentar(pilha *p1, pilha *p2, pilha *p3){
+    int movimento;
+    printf("\n\n        -----------------------------\n");
+    printf("        | X -> Y -- 1 | X -> Z -- 2 |\n");
+    printf("        -----------------------------\n");
+    printf("        | Y -> X -- 3 | Y -> Z -- 4 |\n");
+    printf("        -----------------------------\n");
+    printf("        | Z -> X -- 5 | Z -> Y -- 6 |\n");
+    printf("        -----------------------------\n");
+    printf("        \nDigite o proximo movimento: ");
+    scanf("%d", &movimento);
 
-    switch (mover[0]){
-        case 'A':
-            switch (mover[1]){
-                case 'B':
-                    if(novoMovimento(p1, p2) == 0){
-                        return 4;
-                    }
-                    break;
-            
-                case 'C':
-                    if(novoMovimento(p1, p3) == 0){
-                        return 4;
-                    }
-                    break;
-                default:
-                    printf("Movimento nao permitido");
-                    return 4;
+    switch (movimento){
+        case 1: // X -> Y
+            if (novoMovimento(p1, p2) == 0){
+                return 3;
+            }
+            break;
+    
+        case 2: // X -> Z
+            if (novoMovimento(p1, p3) == 0){
+                return 3;
             }
             break;
 
-        case  'B':
-            switch (mover[1])
-            {
-            case 'A':
-                if (novoMovimento(p2, p1) == 0){
-                    return 4;
-                }
-                break;
-
-            case 'C':
-                if (novoMovimento(p2, p3) == 0){
-                    return 4;
-                }
-                break;
-            default:
-                printf("Movimento nao permitido");
-                return 4;
+        case 3: // Y -> X
+            if (novoMovimento(p2, p1) == 0){
+                return 3;
+            }
+            break;
+        
+        case 4: // Y -> Z
+            if (novoMovimento(p2, p3) == 0){
+                return 3;
+            }
+            break;
+        
+        case 5: // Z -> X
+            if (novoMovimento(p3, p1) == 0){
+                return 3;
             }
             break;
 
-        case 'C':
-            switch (mover[1])
-            {
-            case 'A':
-                if (novoMovimento(p3, p1) == 0){
-                    return 4;
-                }
-                break;
-
-            case 'B':
-                if (novoMovimento(p3, p2) == 0){
-                    return 4;
-                }
-                break;
-            default:
-                printf("Movimento nao permitido");
-                return 4;
+        case 6: // Z -> Y
+            if (novoMovimento(p3, p2) == 0){
+                return 3;
             }
             break;
         
         default:
-            printf("Movimento nao permitido");
-            return 4;
+            printf("Movimento nao permitido --movimentar()");
+            return 3;
             break;
-    }   
-    
-    return 5;
+    }
+
+    return 4;
 }
 
 
@@ -186,33 +170,65 @@ void comeco(){
     int num_discos = numeroDiscos();    
 
     // Iniciando torres
-    inicializacao(&torreA);
-    inicializacao(&torreB);
-    inicializacao(&torreC);
+    inicializacao(&torreX);
+    inicializacao(&torreY);
+    inicializacao(&torreZ);
 
-    inicio_torre(&torreA, num_discos);
+    inicio_torre(&torreX, num_discos);
     
-    mostrarPinos(&torreA, &torreB, &torreC);
+    mostrarPinos(&torreX, &torreY, &torreZ);
 
 }
 
 
 void menu(){
-    char opcao, e;
-    comeco();
+    int opcao = 1;
 
+    system("cls");
+    printf("TORRE DE HANOI\n\n");
+    printf("1 - Iniciar Jogo\n");
 
-    do{
-        system("cls");
-        printf("TORRE DE HANOI\n\n");
-        printf("1 - Mostrar Torres");
+    do
+    {
+        switch (opcao)
+        {
+        case 1:
+            system("cls");
+            comeco();
+            opcao = 2;
+            break;
 
-    }
+        case 2:
+            system("cls");
+            mostrarPinos(&torreX, &torreY, &torreZ);
 
-// PAREI AQUI
+        case 3:
+            opcao = movimentar(&torreX, &torreY, &torreZ);
+            break;
+
+        case 4:
+            if (tamanho(&torreY) == 0)
+            {
+                opcao == 5;
+            }
+            else
+            {
+                opcao == 2;
+            }
+
+        case 5:
+            //esvaziarTorres(&torreX);
+            //esvaziarTorres(&torreY);
+            //esvaziarTorres(&torreZ);
+            opcao = 9;
+
+        default:
+            printf("\n\nOpcao Invalida --menu");
+        }
+    } while (opcao != 9);
 }
 
-// MAIN
 int main(){
     menu();
+    mostrarPinos(&torreX, &torreY, &torreZ);
 }
