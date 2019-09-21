@@ -1,5 +1,5 @@
-#include <conio.h>
-//#include <ncurses.h>
+//#include <conio.h>
+#include <ncurses.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,6 +28,7 @@ void empilhar(pilha *p, int valor){
 }
 
 
+
 int desempilhar(pilha *p){
     int valor;
 
@@ -36,6 +37,8 @@ int desempilhar(pilha *p){
 
     return valor;
 }
+
+
 
 
 void inicio_torre(pilha *p, int quantidade){
@@ -66,6 +69,28 @@ void mostrarPinos(pilha *p1, pilha *p2, pilha *p3){
 }
 
 
+bool torreVazia(pilha *p){
+    if (p->topo == -1){
+        return true;
+    }
+    return false;
+}
+
+
+void esvaziarTorre(pilha *p){
+    int e;
+    if (torreVazia(p) == false){
+        printf("\n\nTorre Vazia!!!\n");
+    }
+    else{
+        while (torreVazia(p) == false){
+            e = desempilhar(p);
+        }
+        printf("\n\nTorre esvaziada\n");
+    }
+}
+
+
 int tamanho(pilha *p){
     return (p->topo + 1);
 }
@@ -78,13 +103,14 @@ int valorTopo(pilha *p){
 
 int novoMovimento(pilha *p1, pilha *p2){
     int aux;
-    if (valorTopo(p1)>-1)
-    {
-        aux = desempilhar(p1);
-        empilhar(p2, aux);
+    if (tamanho(p1)>0 && (tamanho(p2)<=0)||(valorTopo(p1)<valorTopo(p2))){
+            aux = desempilhar(p1);
+            empilhar(p2, aux);
+            return 1;
     }
     else{
         printf("Movimento nao permitido!!! --novoMovimento()");
+        return 0;
     }
     
 }
@@ -92,31 +118,8 @@ int novoMovimento(pilha *p1, pilha *p2){
 
 int movimentar(pilha *p1, pilha *p2, pilha *p3){
     
-    // INFORMACOES
-    int exibir[3];
-    exibir[0] = tamanho(&torreX);
-    printf("\nTamanho torre X: %d", exibir[0]);
-
-    exibir[1] = tamanho(&torreY);
-    printf("\nTamanho torre Y: %d", exibir[1]);
-
-    exibir[2] = tamanho(&torreZ);
-    printf("\nTamanho torre Z: %d\n\n", exibir[2]);
-
-    int valor_topo[3];
-    valor_topo[0] = valorTopo(p1);
-    printf("\nValor Topo X: %d", valor_topo[0]);
-
-    valor_topo[1] = valorTopo(p2);
-    printf("\nValor Topo Y: %d", valor_topo[1]);
-
-    valor_topo[2] = valorTopo(p3);
-    printf("\nValor Topo Z: %d\n", valor_topo[2]);
-
-
-
-
     int movimento;
+    
     printf("\n\n        -----------------------------\n");
     printf("        | X -> Y -- 1 | X -> Z -- 2 |\n");
     printf("        -----------------------------\n");
@@ -208,16 +211,13 @@ void comeco(){
 void menu(){
     int opcao = 1;
 
-    system("cls");
+    //system("cls");
     printf("TORRE DE HANOI\n\n");
-    printf("1 - Iniciar Jogo\n");
-
-    do
-    {
+    do{
         switch (opcao)
         {
         case 1:
-            system("cls");
+            //system("cls");
             comeco();
             opcao = 2;
             break;
@@ -231,25 +231,25 @@ void menu(){
             break;
 
         case 4:
-            /*if (tamanho(&torreY) == 0)
-            {
+            if (tamanho(&torreY) == 0){
                 opcao == 5;
             }
-            else
-            {
+            else{
                 opcao == 2;
-            }*/
+            }
+            break;
 
         case 5:
-            //esvaziarTorres(&torreX);
-            //esvaziarTorres(&torreY);
-            //esvaziarTorres(&torreZ);
+            esvaziarTorre(&torreX);
+            esvaziarTorre(&torreY);
+            esvaziarTorre(&torreZ);
             opcao = 9;
+            break;
 
-        default:
-            printf("\n\nOpcao Invalida --menu");
         }
     } while (opcao != 9);
+    printf("\nFIM DE JOGO");
+
 }
 
 int main(){
