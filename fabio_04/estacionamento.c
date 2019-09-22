@@ -38,16 +38,8 @@ bool estacionamento_vazio(pilha *Pilha){
 
 // PUSH - POP
 void novo_veiculo(pilha *Pilha, char veiculo){ // empilhar
-    printf("\n\nDIGITE A PLACA DO VEICULO: ");
-    scanf("%c", &veiculo);
-
     Pilha -> topo = Pilha -> topo + 1;
     Pilha -> elemento[Pilha -> topo] = veiculo;
-}
-
-void novo_veiculo_2(pilha *Pilha, char veiculo){ // empilhar
-    Pilha->topo = Pilha->topo + 1;
-    Pilha->elemento[Pilha->topo] = veiculo;
 }
 
 char valorTopo(pilha *p){
@@ -69,7 +61,7 @@ char saida_topo_estaciomento(pilha *Pilha){ // desempilhar
     return veiculo;
 }
 
-char saida_veiculo_selecionado(pilha *Pilha, pilha *aux, char veiculo){ // AQUI ESTA A MAGICA
+char saida_veiculo_selecionado(pilha *Pilha, pilha *aux, char veiculo){ 
     char removeu_topo, retorno;
     removeu_topo = '$';
     printf("\n\nDIGITE A PLACA DO VEICULO: ");
@@ -77,7 +69,7 @@ char saida_veiculo_selecionado(pilha *Pilha, pilha *aux, char veiculo){ // AQUI 
 
     while (removeu_topo != veiculo){
         removeu_topo = saida_topo_estaciomento(Pilha);
-        novo_veiculo_2(aux, removeu_topo);
+        novo_veiculo(aux, removeu_topo);
     }
 
     retorno = saida_topo_estaciomento(Pilha);
@@ -90,14 +82,19 @@ char saida_veiculo_selecionado(pilha *Pilha, pilha *aux, char veiculo){ // AQUI 
 
 // MOSTRAR VEICULOS NO ESTACIOMENTO
 void mostrarEstacimento(pilha *Pilha){
+    char saida;
     if (estacionamento_vazio(Pilha)){
         printf("\n\nESTACIONAMENTO VAZIO!!!\n");
     }
     else{
         printf("\nESTACIOMENTO  -> ESPACOS OCUPADOS\n");
+        printf("%d", Pilha->elemento[0]);
+        printf("%d", Pilha->elemento[1]);
+        
         
         for (int i = Pilha->topo; i >= 0; i--){
-            printf("\n Veiculo - %c",  Pilha->elemento[i]);
+            saida = Pilha->elemento[i];
+            printf("\n Veiculo - %d",  saida);
         }
     }
 }
@@ -105,8 +102,9 @@ void mostrarEstacimento(pilha *Pilha){
 
 // MENU
 void menu(){
-    char veiculo = '$';
+    char veiculo[10];
     int opcao;
+    int i;
 
     inicializacao(&alameda);
     inicializacao(&auxiliar);
@@ -129,8 +127,12 @@ void menu(){
                     printf("\n\nESTACIONAMENTO LOTADO!!!");
                 } 
                 else{
-                    scanf("%c", &veiculo);
-                    novo_veiculo(&alameda, veiculo);                    
+                    printf("\n\nDIGITE A PLACA DO VEICULO:  ");
+                    scanf("%s", &veiculo[0]);
+                    fgets(&veiculo[0], sizeof(&veiculo[0]), stdin);
+                    //veiculo[0] = getchar();
+                    novo_veiculo(&alameda, veiculo[0]);
+                    i++;                    
                 }
                 printf("Saiu");
                 break;
@@ -138,15 +140,16 @@ void menu(){
             
             case 2: // SAIDA DE VEICULO
             {
+                char remover_veiculo[3];
                 if (estacionamento_vazio(&alameda)){
                     printf("\n\nESTACIONAMENTO VAZIO\n");
                 }
                 else{
                     char saiu;
                     mostrarEstacimento(&alameda);
-                    scanf("%c", &veiculo);
+                    scanf("%s", &remover_veiculo[0]);
 
-                    saiu =  saida_veiculo_selecionado(&alameda, &auxiliar, veiculo);
+                    saiu =  saida_veiculo_selecionado(&alameda, &auxiliar, remover_veiculo[0]);
                     printf("\nO veiculo %c foi removido.\n", saiu);
                 }
                 break;
