@@ -1,5 +1,5 @@
-//#include <conio.h>
-#include <ncurses.h>
+#include <conio.h>
+//#include <ncurses.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
