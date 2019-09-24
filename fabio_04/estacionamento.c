@@ -1,6 +1,4 @@
-// PROBLEMA NA 80
-
-//#include <conio.h>
+#include <conio.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -78,7 +76,6 @@ void retornar_veiculos(pilha *Pilha, pilha *aux){ // retornar os veiculos para a
         topo = aux->elemento[aux->topo];
         novo_veiculo(Pilha, topo);
         auxiliar = saida_topo_estaciomento(aux);
-        printf("\nValor do topo: %d\n\n", topo);
     }
 }
 
@@ -143,7 +140,7 @@ void menu(){
                     scanf("%d", &veiculo);
 
                     saida_veiculo_selecionado(&alameda, &auxiliar, veiculo);
-                    printf("\nO veiculo foi removido.\n");
+                    printf("\nO VEICULO %d FOI REMOVIDO!!!\n", veiculo);
                     mostrarEstacimento(&alameda);
                 }
                 break;
@@ -168,7 +165,6 @@ void menu(){
         system("pause");
 
     } while (opcao != 9);
-    
 }
 
 
