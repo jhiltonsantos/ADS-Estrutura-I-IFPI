@@ -1,12 +1,12 @@
 // PROBLEMA NA 80
 
-#include <conio.h>
+//#include <conio.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define tam 5
+#define tam 10
 
 typedef struct{
     int topo;
@@ -69,37 +69,30 @@ void retornar_veiculos(pilha *Pilha, pilha *aux){
     }
 }
 
-int saida_topo_estaciomento(pilha *Pilha){ // desempilhar
+void saida_topo_estaciomento(pilha *Pilha){ // desempilhar
     int veiculo;
     veiculo = Pilha->elemento[Pilha->topo];
     Pilha->topo = Pilha->topo-1;
-
-    return veiculo;
 }
 
-int saida_veiculo_selecionado(pilha *Pilha, pilha *aux){ 
-    int veiculo, removeu_topo, retorno;
-
-    printf("\n\nDIGITE A PLACA DO VEICULO: ");
-    scanf("%d", &veiculo);
-    removeu_topo = 9999;
-
+void saida_veiculo_selecionado(pilha *Pilha, pilha *aux, int veiculo){ 
+    int removeu_topo;
     do{
-        removeu_topo = saida_topo_estaciomento(Pilha);
-        printf("Topo Pilha:%d   Veiculo:%d\n", removeu_topo, veiculo);
+        saida_topo_estaciomento(Pilha);
+        removeu_topo = Pilha->elemento[Pilha->topo];
+
         novo_veiculo(aux, removeu_topo);
     } while (veiculo != removeu_topo);
     
-    retorno = saida_topo_estaciomento(Pilha);
+    saida_topo_estaciomento(Pilha);
     retornar_veiculos(Pilha, aux);
-
-    return retorno;
 }
 
 
 // MENU
 void menu(){
     int placa, opcao, i;
+    int veiculo;
 
     inicializacao(&alameda);
     inicializacao(&auxiliar);
@@ -138,9 +131,12 @@ void menu(){
                 else{
                     int saiu;
                     mostrarEstacimento(&alameda);
+                    printf("\n\nDIGITE A PLACA DO VEICULO: ");
+                    scanf("%d", &veiculo);
 
-                    saiu = saida_veiculo_selecionado(&alameda, &auxiliar);
-                    printf("\nO veiculo %d foi removido.\n", saiu);
+                    saida_veiculo_selecionado(&alameda, &auxiliar, veiculo);
+                    printf("\nO veiculo foi removido.\n");
+                    mostrarEstacimento(&alameda);
                 }
                 break;
             }
