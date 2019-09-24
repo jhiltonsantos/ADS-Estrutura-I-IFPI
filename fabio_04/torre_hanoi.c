@@ -38,14 +38,10 @@ int desempilhar(pilha *p){
     return valor;
 }
 
-
-
-
 void inicio_torre(pilha *p, int quantidade){
     int aux;
     aux = quantidade;
-    while (aux > 0)
-    {
+    while (aux > 0){
         empilhar(p, aux);
         aux--;
     }
@@ -217,13 +213,12 @@ void menu(){
         switch (opcao)
         {
         case 1:
-            //system("cls");
+            system("cls");
             comeco();
             opcao = 2;
             break;
 
         case 2:
-            system("cls");
             mostrarPinos(&torreX, &torreY, &torreZ);
 
         case 3:
@@ -232,20 +227,17 @@ void menu(){
 
         case 4:
             if (tamanho(&torreY) == 0){
-                opcao == 5;
+                esvaziarTorre(&torreX);
+                esvaziarTorre(&torreY);
+                esvaziarTorre(&torreZ);
+
+                opcao = 9;
             }
             else{
-                opcao == 2;
+                mostrarPinos(&torreX, &torreY, &torreZ);
+                opcao = 2;
             }
             break;
-
-        case 5:
-            esvaziarTorre(&torreX);
-            esvaziarTorre(&torreY);
-            esvaziarTorre(&torreZ);
-            opcao = 9;
-            break;
-
         }
     } while (opcao != 9);
     printf("\nFIM DE JOGO");
