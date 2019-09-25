@@ -1,5 +1,5 @@
-#include <conio.h>
-//#include <ncurses.h>
+//#include <conio.h>
+#include <ncurses.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,7 +50,7 @@ void inicio_torre(pilha *p, int quantidade){
 
 void mostrarTorre(pilha *p){
     for(int i = p->topo; i>=0; i--){
-        printf("\n%d", p->elemento[i]);
+        printf(" %d", p->elemento[i]);
     }
 }
 
@@ -96,6 +96,27 @@ int valorTopo(pilha *p){
     return p->elemento[p->topo];
 }
 
+int leia_origem_destino(int variavel)
+{
+    int valor;
+    if (variavel == 1)
+    {
+        printf("\nTorre de origem: ");
+    }
+    else
+    {
+        printf("\nTorre de destino: ");
+    }
+    scanf("%d", &valor);
+    while (valor < 1 && valor > 3)
+    {
+        printf("\nTorre invalida!!!\n");
+        printf("\nDigite novamente: ");
+        scanf("%d", &valor);
+    }
+
+    return valor;
+}
 
 int novoMovimento(pilha *p1, pilha *p2){
     int aux;
@@ -113,58 +134,80 @@ int novoMovimento(pilha *p1, pilha *p2){
 
 
 int movimentar(pilha *p1, pilha *p2, pilha *p3){
-    
-    int movimento;
-    
-    printf("\n\n        -----------------------------\n");
-    printf("        | X -> Y -- 1 | X -> Z -- 2 |\n");
-    printf("        -----------------------------\n");
-    printf("        | Y -> X -- 3 | Y -> Z -- 4 |\n");
-    printf("        -----------------------------\n");
-    printf("        | Z -> X -- 5 | Z -> Y -- 6 |\n");
-    printf("        -----------------------------\n");
-    printf("        \nDigite o proximo movimento: ");
-    scanf("%d", &movimento);
+    int retorno;
+    int origem, destino;
+    mostrarPinos(p1, p2, p3);
+    origem = leia_origem_destino(1);
+    destino = leia_origem_destino(2);
 
-    switch (movimento){
-        case 1: // X -> Y
-            if (novoMovimento(p1, p2) == 0){
-                return 3;
-            }
-            break;
-    
-        case 2: // X -> Z
-            if (novoMovimento(p1, p3) == 0){
-                return 3;
-            }
-            break;
+    switch (origem){
+        case 1:
+            switch (destino){
+                case 1:
+                    printf("\nMOVIMENTO INVALIDO!!!");
+                    return 3;
+                    break;
 
-        case 3: // Y -> X
-            if (novoMovimento(p2, p1) == 0){
-                return 3;
+                case 2:
+                    retorno = novoMovimento(p1, p2);
+                    if (retorno==0){
+                        return 3;
+                    }
+                
+                case 3:
+                    retorno = novoMovimento(p1, p3);
+                    if (retorno == 0){
+                        return 3;
+                    }
             }
-            break;
-        
-        case 4: // Y -> Z
-            if (novoMovimento(p2, p3) == 0){
-                return 3;
-            }
-            break;
-        
-        case 5: // Z -> X
-            if (novoMovimento(p3, p1) == 0){
-                return 3;
-            }
-            break;
+        break;
 
-        case 6: // Z -> Y
-            if (novoMovimento(p3, p2) == 0){
+        case 2:
+            switch (destino)
+            {
+            case 1:
+                retorno = novoMovimento(p2, p1);
+                if (retorno == 0){
+                    return 3;
+                }
+                
+            case 2:
+                printf("\nMOVIMENTO INVALIDO!!!");
                 return 3;
+                break;
+
+            case 3:
+                retorno = novoMovimento(p2, p3);
+                if (retorno == 0)
+                {
+                    return 3;
+                }
             }
-            break;
-        
+
+        case 3:
+            switch (destino)
+            {
+            case 1:
+                retorno = novoMovimento(p3, p1);
+                if (retorno == 0)
+                {
+                    return 3;
+                }
+
+            case 2:
+                retorno = novoMovimento(p3, p2);
+                if (retorno == 0){
+                    return 3;
+                }
+                
+            case 3:
+                printf("\nMOVIMENTO INVALIDO!!!");
+                return 3;
+                break;
+            }
+
         default:
-            printf("Movimento nao permitido --movimentar()");
+            printf("\nMOVIMENTO NAO PERMITIDO");
             return 3;
             break;
     }
@@ -191,16 +234,13 @@ int numeroDiscos(){
 
 void comeco(){
     int num_discos = numeroDiscos();    
-
     // Iniciando torres
     inicializacao(&torreX);
     inicializacao(&torreY);
     inicializacao(&torreZ);
 
     inicio_torre(&torreX, num_discos);
-    
     mostrarPinos(&torreX, &torreY, &torreZ);
-
 }
 
 
@@ -213,7 +253,8 @@ void menu(){
         switch (opcao)
         {
         case 1:
-            system("cls");
+            //system("cls");
+            printf("\33[H\33[2J");
             comeco();
             opcao = 2;
             break;
@@ -222,6 +263,7 @@ void menu(){
             mostrarPinos(&torreX, &torreY, &torreZ);
 
         case 3:
+            printf("\33[H\33[2J");
             opcao = movimentar(&torreX, &torreY, &torreZ);
             break;
 
@@ -230,11 +272,14 @@ void menu(){
                 esvaziarTorre(&torreX);
                 esvaziarTorre(&torreY);
                 esvaziarTorre(&torreZ);
-
+                int c = getchar();
+                printf("\n\nPrecione qualquer tecla para continuar...");
                 opcao = 9;
             }
             else{
                 mostrarPinos(&torreX, &torreY, &torreZ);
+                int c = getchar();
+                printf("\n\nPrecione qualquer tecla para continuar...");
                 opcao = 2;
             }
             break;

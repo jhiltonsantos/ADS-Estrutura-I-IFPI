@@ -81,7 +81,7 @@ void retornar_veiculos(pilha *Pilha, pilha *aux){ // retornar os veiculos para a
 
 void saida_veiculo_selecionado(pilha *Pilha, pilha *aux, int veiculo){ 
     // remove veiculo da pilha principal
-    int removeu_topo = -999, saiu_principal;
+    int removeu_topo, saiu_principal;
 
     do{ // move os veiculos não removidos para a pilha auxiliar
         removeu_topo = saida_topo_estaciomento(Pilha);
