@@ -1,4 +1,4 @@
-#include <conio.h>
+//#include <conio.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -103,7 +103,9 @@ void menu(){
     inicializacao(&auxiliar);
 
     do{
-        system("cls");
+        //system("cls");
+        printf("\33[H\33[2J");
+
         printf("\nESTACIONAMENTO\n\n");
         printf("1 - ENTRADA DE VEICULO\n");
         printf("2 - REMOVER VEICULO\n");
@@ -142,12 +144,18 @@ void menu(){
                     saida_veiculo_selecionado(&alameda, &auxiliar, veiculo);
                     printf("\nO VEICULO %d FOI REMOVIDO!!!\n", veiculo);
                     mostrarEstacimento(&alameda);
+
+                    int c = getchar();
+                    printf("\n\nPrecione qualquer tecla para continuar...");
+                
                 }
                 break;
             }
             case 3:
             {
                 mostrarEstacimento(&alameda);
+                int c = getchar();
+                printf("\n\nPrecione qualquer tecla para continuar...");
                 break;
             }
             case 9:
@@ -162,7 +170,8 @@ void menu(){
             }
         }
         printf("\n\n");
-        system("pause");
+        int c = getchar();
+        //system("PAUSE");
 
     } while (opcao != 9);
 }
