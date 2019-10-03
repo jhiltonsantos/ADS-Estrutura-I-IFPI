@@ -4,6 +4,7 @@
 #include <conio.h>
 //#include <ncurses.h>
 #include <stdbool.h>
+#include <string.h>
 
 #define size 10
 
@@ -31,7 +32,7 @@ bool stack_empty(stack *Stack){
 
 // SHOW STACK
 void show_stack(stack *Stack){
-    int value;
+    char value;
     int top = Stack->top;
 
     if (stack_empty(Stack)){
@@ -42,28 +43,80 @@ void show_stack(stack *Stack){
         for (int i = top; i >= 0; i--)
         {
             value = Stack->element[i];
-            printf("\nValor - %d", value);
+            printf("\nValor - %c", value);
         }
     }
 }
 
 // PUSH ON TOP
-void push_stack(stack *Stack, int value){
+void push_stack(stack *Stack, char value){
     Stack->top = Stack->top + 1;
     Stack->element[Stack->top] = value;
 }
 
 // POP
 char pop_stack(stack *Stack){
-    int value;
+    char value;
     value = Stack->element[Stack->top];
-    Stack->top = Stack->top-1;
-
+    Stack->top = Stack->top - 1;
     return value;
 }
 
-// CHECK VALUE
+// CHECK VALUE TOP
 char check_value(stack *Stack){
     return Stack->element[Stack->top];    
 }
 
+void printf_value_top(stack *Stack){
+    printf("Valor no Topo: %c", Stack->element[Stack->top]);
+}
+
+// CONDITIONALS
+void check_operator(stack *Stack)
+{
+    char op, resultado;
+    int num1, num2, operacao;
+
+    if (check_value(Stack) == '+')
+    { // ADICAO
+        op = pop_stack(Stack);
+        num1 = pop_stack(Stack) - '0';
+        num2 = pop_stack(Stack) - '0';
+        resultado = (char)(num1 + num2) + '0';
+        push_stack(Stack, resultado);
+    }
+    else if (check_value(Stack) == '-')
+    { // SUBTRACAO
+        op = pop_stack(Stack);
+        num1 = pop_stack(Stack) - '0';
+        num2 = pop_stack(Stack) - '0';
+        operacao = num1 - num2;
+        if (operacao < 0){
+            resultado = '-' + (char)(operacao) + '0';
+            printf("\nResultado: %c", resultado);
+        }
+        else{
+            resultado = (char)(operacao) + '0';
+            printf("\nResultado: %c", resultado);
+        }
+                
+        push_stack(Stack, resultado);
+    }
+    else if (check_value(Stack) == '*')
+    { // MULTIPLICACAO
+        op = pop_stack(Stack);
+        num1 = pop_stack(Stack) - '0';
+        num2 = pop_stack(Stack) - '0';
+        resultado = (char)(num1 * num2) + '0';
+        push_stack(Stack, resultado);
+    }
+    else if (check_value(Stack) == '/')
+    {
+        op = pop_stack(Stack);
+        num1 = pop_stack(Stack) - '0';
+        num2 = pop_stack(Stack) - '0';
+        resultado = (char)(num1 / num2) + '0';
+        push_stack(Stack, resultado);
+    }
+    printf("\nPrecione qualquer tecla para continuar...");
+}
