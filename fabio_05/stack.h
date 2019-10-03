@@ -1,8 +1,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
-//#include <ncurses.h>
+//#include <conio.h>
+#include <ncurses.h>
 #include <stdbool.h>
 #include <string.h>
 
@@ -65,10 +65,6 @@ char pop_stack(stack *Stack){
 // CHECK VALUE TOP
 char check_value(stack *Stack){
     return Stack->element[Stack->top];    
-}
-
-void printf_value_top(stack *Stack){
-    printf("Valor no Topo: %c", Stack->element[Stack->top]);
 }
 
 // CONDITIONALS
