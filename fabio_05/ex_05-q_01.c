@@ -4,7 +4,9 @@
 #include <ncurses.h>
 #include <stdbool.h>
 #include <string.h>
-#include "stack.h"
+
+#include "stack_01.h"
+#define tam 10
 
 void menu()
 {
@@ -14,8 +16,8 @@ void menu()
 
     do
     {
-        //system("clear");
-        system("cls");
+        system("clear");
+        //system("cls");
         printf("\nCALCULADORA POS-FIXADA\n");
         show_stack(&Stack);
 
@@ -37,12 +39,14 @@ void menu()
 
         case 1:
         {
-            char value;
+            char *value;
+            value = malloc(tam * sizeof(char));
 
             printf("\nDIGITE UM VALOR OU OPERADOR: ");
-            scanf("%s%*c", &value);
+            scanf("%s", value);
+            printf("\nNumero: %s", value);
 
-            push_stack(&Stack, value);
+            push_stack(&Stack, *value);
             check_operator(&Stack);
 
             break;
@@ -60,7 +64,7 @@ void menu()
             break;
         }
         }
-        c = getchar();
+        //c = getchar();
     } while (option != 9);
 }
 
