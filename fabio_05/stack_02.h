@@ -72,3 +72,19 @@ void pop_stack(stack *Stack){
     Stack->element[Stack->top];
     Stack->top = Stack->top - 1;
 }
+
+/*char check_value(stack *Stack){
+    int j = strlen(Stack->element[Stack->top]);
+    char valor[j];
+    
+    for (int i = 0; i < str_size; i++)
+    {
+        valor[i] = Stack->element[Stack->top][i];
+        if (Stack->element[Stack->top][i] == '\0')
+        {
+            break;
+        }
+    }
+
+    return valor;
+}*/
