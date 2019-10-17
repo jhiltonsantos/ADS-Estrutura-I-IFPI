@@ -184,90 +184,90 @@ void menu()
 
         switch (opcao)
         {
-        case '1':
-        { // ENTRADE DE CLIENTES NA FILA
-            int cliente;
-            if (fila_cheia(&Cliente))
-            {
-                printf("\nFILA DE CLIENTES ESTA LOTADA!!!\n");
-            }
-            else
-            {
-                printf("\nDIGITE O NOVO CLIENTE: ");
-                scanf("%d", &cliente);
-                entrar_fila(&Cliente, cliente);
-            }
-            c = getchar();
-            break;
-        }
-
-        case '2':
-        { // ATENDER CLIENTES NO GUICHE
-            if (tamanho(&Guiche) == n_guiches)
-            {
-                printf("\nGUICHES ESTAO LOTADOS!!!\n\n");
-            }
-            else
-            {
-                int primeiro, saiu;
-                primeiro = consultar_primeiro(&Cliente);
-                saiu = sair_fila(&Cliente);
-                entrar_fila(&Guiche, primeiro);
-                printf("\nCLIENTE %d SAIU DA FILA E ESTA SENDO ATENDIDO!!!\n", saiu);
-            }
-            c = getchar();
-            break;
-        }
-
-        case '3':
-        {   // CLIENTE ATENDIDO
-            if (tamanho(&Guiche) == 0){
-                printf("Continuando...");
+            case '1':
+            { // ENTRADE DE CLIENTES NA FILA
+                int cliente;
+                if (fila_cheia(&Cliente))
+                {
+                    printf("\nFILA DE CLIENTES ESTA LOTADA!!!\n");
+                }
+                else
+                {
+                    printf("\nDIGITE O NOVO CLIENTE: ");
+                    scanf("%d", &cliente);
+                    entrar_fila(&Cliente, cliente);
+                }
                 c = getchar();
                 break;
             }
-            else{
-                int saiu;
-                saiu = sair_fila(&Guiche);
-                printf("\nCLIENTE %d FOI ATENDIDO!!!\n", saiu);
+
+            case '2':
+            { // ATENDER CLIENTES NO GUICHE
+                if (tamanho(&Guiche) == n_guiches)
+                {
+                    printf("\nGUICHES ESTAO LOTADOS!!!\n\n");
+                }
+                else
+                {
+                    int primeiro, saiu;
+                    primeiro = consultar_primeiro(&Cliente);
+                    saiu = sair_fila(&Cliente);
+                    entrar_fila(&Guiche, primeiro);
+                    printf("\nCLIENTE %d SAIU DA FILA E ESTA SENDO ATENDIDO!!!\n", saiu);
+                }
+                c = getchar();
+                break;
             }
 
-        }
+            case '3':
+            {   // CLIENTE ATENDIDO
+                if (tamanho(&Guiche) == 0){
+                    printf("Continuando...");
+                    c = getchar();
+                    break;
+                }
+                else{
+                    int saiu;
+                    saiu = sair_fila(&Guiche);
+                    printf("\nCLIENTE %d FOI ATENDIDO!!!\n", saiu);
+                }
 
-        case '4':
-        { // MOSTRAR ELEMENTOS NA FILA CLIENTE
-            mostrar_fila(&Cliente);
-            c = getchar();
-            break;
-        }
+            }
 
-        case '5':
-        { // MOSTRAR ELEMENTOS NA FILA GUICHE
-            mostrar_fila(&Guiche);
-            c = getchar();
-            break;
-        }
+            case '4':
+            { // MOSTRAR ELEMENTOS NA FILA CLIENTE
+                mostrar_fila(&Cliente);
+                c = getchar();
+                break;
+            }
 
-        case '6':
-        {
-            esvaziar_fila(&Cliente);
-            c =getchar();
-            break;
-        }
+            case '5':
+            { // MOSTRAR ELEMENTOS NA FILA GUICHE
+                mostrar_fila(&Guiche);
+                c = getchar();
+                break;
+            }
 
-        case '7':
-        {
-            esvaziar_fila(&Guiche);
-            c = getchar();
-            break;
-        }
+            case '6':
+            {
+                esvaziar_fila(&Cliente);
+                c =getchar();
+                break;
+            }
 
-        default:
-        {
-            printf("\n\nOPCAO INVALIDA!!!");
-            c = getchar();
-            break;
-        }
+            case '7':
+            {
+                esvaziar_fila(&Guiche);
+                c = getchar();
+                break;
+            }
+
+            default:
+            {
+                printf("\n\nOPCAO INVALIDA!!!");
+                c = getchar();
+                break;
+            }
         }
     } while (opcao != '9');
 }
