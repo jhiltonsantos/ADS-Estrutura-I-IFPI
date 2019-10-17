@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ncurses.h>
-//#include <conio.h>
+//#include <ncurses.h>
+#include <conio.h>
 #include <stdbool.h>
 
 // AGENCIA BANCARIA ---> FILA ESTATICA
@@ -31,20 +31,23 @@ typedef struct
 fila Cliente;
 fila Guiche;
 
-void iniciar_fila(fila *C){
-    C -> inicio = -1;
-    C -> fim = -1;
+void iniciar_fila(fila *C)
+{
+    C->inicio = -1;
+    C->fim = -1;
 }
 
-
-bool fila_completa(fila *C){
-    if(C -> fim == tam-1){
+bool fila_cheia(fila *C)
+{
+    if (C->fim == tam - 1)
+    {
         return true;
     }
     return false;
 }
 
-bool fila_vazia(fila *C){
+bool fila_vazia(fila *C)
+{
     if ((C->fim == -1) && (C->inicio == -1))
     {
         return true;
@@ -53,70 +56,90 @@ bool fila_vazia(fila *C){
 }
 
 //funcao tamanho
-void quantidade_clientes(fila *C){
+int tamanho(fila *C)
+{
     int tamanho;
-    if (fila_vazia(C)){
-        printf("\nFILA SEM CLIENTES (quantidade_clientes)\n");
+    if (fila_vazia(C))
+    {
+        printf("\nFILA VAZIA!!!\n");
+        return 0;
     }
-    else{
+    else
+    {
         tamanho = ((C->fim) - (C->inicio)) + 1;
-        printf("\nQUANTIDADE DE CLIENTES: %i (quantidade_clientes)\n", tamanho);
+        printf("\nQUANTIDADE: %i.\n", tamanho);
+        return tamanho;
     }
 }
 
-int consultar_primeiro(fila *C){
-    if (fila_vazia(C)){
-        printf("\nFILA SEM CLIENTES (consultar_primeiro)\n");
+int consultar_primeiro(fila *C)
+{
+    if (fila_vazia(C))
+    {
+        printf("\nFILA SEM CLIENTES!!!\n");
         return 0;
     }
-    else{
+    else
+    {
         int cliente = C->elemento[C->inicio];
-        printf("\nCLIENTE: %i (consultar_primeiro)\n", cliente);
+        printf("\nCLIENTE: %i\n", cliente);
         return cliente;
     }
 }
 
-void mostrar_fila(fila *C){
-    if (fila_vazia(C)){
-        printf("\nFILA SEM CLIENTES (mostrar_fila)\n");
+void mostrar_fila(fila *C)
+{
+    if (fila_vazia(C))
+    {
+        printf("\nFILA SEM CLIENTES\n");
     }
-    else{
+    else
+    {
         printf("\nFILA DE CLIENTES: ");
-        for (int i = C->inicio; i <= C->fim; i++){
-            printf("%i ", C -> elemento[i]);
+        for (int i = C->inicio; i <= C->fim; i++)
+        {
+            printf("%i ", C->elemento[i]);
         }
     }
 }
 
-void entrar_fila(fila *C, int valor){
-    if(fila_vazia(C)){
-        C->inicio = C->inicio +1;
+void entrar_fila(fila *C, int valor)
+{
+    if (fila_vazia(C))
+    {
+        C->inicio = C->inicio + 1;
     }
-    C->fim = C->fim +1;
+    C->fim = C->fim + 1;
     C->elemento[C->fim] = valor;
 }
 
-int sair_fila(fila *C){
+int sair_fila(fila *C)
+{
     int valor;
     valor = C->elemento[C->inicio];
-    if (C->inicio == C->fim){
+    if (C->inicio == C->fim)
+    {
         // FILA VAZIA
         C->inicio = -1;
         C->fim = -1;
     }
-    else{
+    else
+    {
         C->inicio = C->inicio + 1;
     }
 
     return valor;
 }
 
-void esvaziar_fila(fila *C){
+void esvaziar_fila(fila *C)
+{
     int valor;
-    if (fila_vazia(C)){
-        printf("\nFILA SEM CLIENTES (esvaziar_fila)\n");
+    if (fila_vazia(C))
+    {
+        printf("\nFILA SEM CLIENTES\n");
     }
-    else{
+    else
+    {
         printf("\nESVAZIANDO FILA\n");
         while (fila_vazia(C) == false)
         {
@@ -124,28 +147,36 @@ void esvaziar_fila(fila *C){
             printf("\nCLIENTE RETIRADO: %i", valor);
         }
         printf("\nFILA ESVAZIADA\n");
-        }
+    }
 }
 
-
-void menu(){
+void menu()
+{
     char opcao;
     int e, c;
 
     iniciar_fila(&Cliente);
     iniciar_fila(&Guiche);
 
-    do{
+    system("clear");
+    int n_guiches;
+    printf("AGENCIA BANCARIA\n\n");
+    printf("ENTRAR COM NUMERO DE GUICHES: ");
+    scanf("%d", &n_guiches);
+    c = getchar();
+    system("clear");
+
+    do
+    {
         system("clear");
-        //int c = getchar();
         printf("AGENCIA BANCARIA\n\n");
-        printf("1 - ENTRAR NUMERO DE GUICHES\n");
-        printf("2 - ENTRAR CLIENTE\n");
-        printf("3 - ATENDER CLIENTE\n");
-        printf("4 - ATENDENDIMENTO CONCLUIDO\n");
-        printf("5 - MOSTRAR FILA CLIENTES\n");
-        printf("6 - MOSTRAR FILA GUICHES\n");
-        printf("7 - TAMANHO FILA CLIENTES\n");
+        printf("1 - ENTRAR CLIENTE\n");
+        printf("2 - ATENDER CLIENTE\n");
+        printf("3 - ATENDENDIMENTO CONCLUIDO\n");
+        printf("4 - MOSTRAR FILA CLIENTES\n");
+        printf("5 - MOSTRAR FILA GUICHES\n");
+        printf("6 - LIMPAR FILA CLIENTES\n");
+        printf("7 - LIMPAR FILA GUICHES\n");
         printf("9 - SAIR\n");
         printf("OPCAO: ");
         scanf("%c", &opcao);
@@ -153,25 +184,90 @@ void menu(){
 
         switch (opcao)
         {
-            case '1':
+        case '1':
+        { // ENTRADE DE CLIENTES NA FILA
+            int cliente;
+            if (fila_cheia(&Cliente))
             {
-                // ENTRADA DE GUICHES
-                int n_guiches;
-                printf("DIGITE O NUMERO DE GUICHES: \n");
-                scanf("%d", &n_guiches);
+                printf("\nFILA DE CLIENTES ESTA LOTADA!!!\n");
+            }
+            else
+            {
+                printf("\nDIGITE O NOVO CLIENTE: ");
+                scanf("%d", &cliente);
+                entrar_fila(&Cliente, cliente);
+            }
+            c = getchar();
+            break;
+        }
 
-                for (int i = 0; i < n_guiches; i++){
-                    entrar_fila(&Guiche, (i+1));
-                }
+        case '2':
+        { // ATENDER CLIENTES NO GUICHE
+            if (tamanho(&Guiche) == n_guiches)
+            {
+                printf("\nGUICHES ESTAO LOTADOS!!!\n\n");
+            }
+            else
+            {
+                int primeiro, saiu;
+                primeiro = consultar_primeiro(&Cliente);
+                saiu = sair_fila(&Cliente);
+                entrar_fila(&Guiche, primeiro);
+                printf("\nCLIENTE %d SAIU DA FILA E ESTA SENDO ATENDIDO!!!\n", saiu);
+            }
+            c = getchar();
+            break;
+        }
+
+        case '3':
+        {   // CLIENTE ATENDIDO
+            if (tamanho(&Guiche) == 0){
+                printf("Continuando...");
                 c = getchar();
                 break;
-            
             }
-            
-            default:
-            {
-                break;
+            else{
+                int saiu;
+                saiu = sair_fila(&Guiche);
+                printf("\nCLIENTE %d FOI ATENDIDO!!!\n", saiu);
             }
+
+        }
+
+        case '4':
+        { // MOSTRAR ELEMENTOS NA FILA CLIENTE
+            mostrar_fila(&Cliente);
+            c = getchar();
+            break;
+        }
+
+        case '5':
+        { // MOSTRAR ELEMENTOS NA FILA GUICHE
+            mostrar_fila(&Guiche);
+            c = getchar();
+            break;
+        }
+
+        case '6':
+        {
+            esvaziar_fila(&Cliente);
+            c =getchar();
+            break;
+        }
+
+        case '7':
+        {
+            esvaziar_fila(&Guiche);
+            c = getchar();
+            break;
+        }
+
+        default:
+        {
+            printf("\n\nOPCAO INVALIDA!!!");
+            c = getchar();
+            break;
+        }
         }
     } while (opcao != '9');
 }

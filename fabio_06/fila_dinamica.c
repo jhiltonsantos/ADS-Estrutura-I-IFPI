@@ -1,7 +1,7 @@
 /*
 *******************************************************************
 
-Finalidade: Implementar uma fila estatica
+Finalidade: Implementar uma fila dinamica
 Operacoes:
           - Entrar
           - Sair
@@ -10,25 +10,26 @@ Operacoes:
           - Fim da fila
           - Tamanho da fila
           - Inicializacao da fila
-          - Esvaziar a fila
-          - Fila cheia
-          - Fila vazia
+          - Esvaziar fila
+          - fila vazia
 
 *******************************************************************
 */
 
 #include <stdio.h>
 #include <conio.h>
-//#include <ncurses.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-#define tam 5
+struct no
+{
+    int elemento;
+    no *proximo;
+};
 
 struct fila
 {
-    int elemento[tam];
-    int inicio, fim;
+    int tamanho;
+    no *inicio, *fim;
 };
 
 fila f1;
@@ -36,124 +37,129 @@ fila f1;
 void inicializacao(fila *f)
 {
 
-    f->inicio = -1;
-    f->fim = -1;
-}
-
-bool filaCheia(fila *f)
-{
-
-    bool retorno = false;
-    if (f->fim == tam - 1)
-    {
-        retorno = true;
-    }
-
-    return retorno;
+    f->inicio = NULL;
+    f->fim = NULL;
+    f->tamanho = 0;
 }
 
 bool filaVazia(fila *f)
 {
 
-    bool retorno = false;
-
-    if (f->inicio == -1 && f->fim == -1)
-    {
-        retorno = true;
-    }
-
-    return retorno;
+    return (f->tamanho == 0);
 }
 
 void tamanho(fila *f)
 {
 
-    int tamanho;
-
     if (filaVazia(f))
     {
-        printf("\nFila vazia\n");
+        printf("\n\nFila vazia\n");
     }
     else
     {
-        tamanho = (f->fim - f->inicio) + 1;
-        printf("\nTamanho da fila: %i\n", tamanho);
+        printf("\n\nTamanho : %i\n", f->tamanho);
     }
 }
 
 void consultarInicio(fila *f)
 {
 
+    no *ptr;
+
     if (filaVazia(f))
     {
-        printf("\nFila vazia\n");
+        printf("\n\nFila vazia\n");
     }
     else
     {
-        printf("\nInicio: %i", f->elemento[f->inicio]);
+        ptr = f->inicio;
+        printf("\n\nInicio: %i", ptr->elemento);
     }
 }
 
 void consultarFim(fila *f)
 {
 
-    if (filaVazia(f))
-    {
-        printf("\nFila vazia\n");
-    }
-    else
-    {
-        printf("\nFim: %i", f->elemento[f->fim]);
-    }
-}
-
-void mostrarFila(fila *f)
-{
-
-    int i;
+    no *ptr;
 
     if (filaVazia(f))
     {
-        printf("\nFila vazia\n");
+        printf("\n\nFila vazia\n");
     }
     else
     {
-        printf("\nFila: ");
-        for (i = f->inicio; i <= f->fim; i = i + 1)
-        {
-            printf("%i ", f->elemento[i]);
-        }
+        ptr = f->fim;
+        printf("\n\nFim: %i", ptr->elemento);
     }
 }
 
 void entrar(fila *f, int e)
 {
 
-    if (filaVazia(f))
-    {
-        f->inicio = f->inicio + 1;
+    no *ptr;
+
+    ptr = (no *)malloc(sizeof(no));
+    if (ptr == NULL)
+    { // Teste de alocação
+        printf("\n\nNão foi possível alocar memória!\n");
     }
-    f->fim = f->fim + 1;
-    f->elemento[f->fim] = e;
+    else
+    {
+        ptr->elemento = e;
+        ptr->proximo = NULL;
+        if (filaVazia(f))
+        { // insercao do primeiro elemento
+            f->inicio = ptr;
+            f->fim = ptr;
+        }
+        else
+        {
+            f->fim->proximo = ptr;
+            f->fim = ptr;
+        }
+        f->tamanho = f->tamanho + 1;
+    }
 }
 
 int sair(fila *f)
 {
 
+    no *ptr;
     int e;
 
-    e = f->elemento[f->inicio];
     if (f->inicio == f->fim)
     {
-        f->inicio = -1;
-        f->fim = -1;
+        f->fim = NULL;
+    }
+    ptr = f->inicio;
+    e = ptr->elemento;
+    f->inicio = f->inicio->proximo;
+    f->tamanho = f->tamanho - 1;
+    free(ptr);
+    //     ptr = NULL;
+
+    return e;
+}
+
+void mostrarFila(fila *f)
+{
+
+    no *ptr;
+
+    if (filaVazia(f))
+    {
+        printf("\n\nFila vazia\n");
     }
     else
     {
-        f->inicio = f->inicio + 1;
+        printf("\n\nFila: ");
+        ptr = f->inicio;
+        do
+        {
+            printf("%i ", ptr->elemento);
+            ptr = ptr->proximo;
+        } while (ptr != NULL);
     }
-
-    return e;
 }
 
 void esvaziarFila(fila *f)
@@ -163,17 +169,17 @@ void esvaziarFila(fila *f)
 
     if (filaVazia(f))
     {
-        printf("\nFila vazia\n");
+        printf("\n\nFila vazia\n");
     }
     else
     {
-        printf("\n\nEsvaziando fila\n");
+        printf("\n\nEsvaziando Fila\n\n");
         while (!filaVazia(f))
         {
             e = sair(f);
-            printf("\nElemento retirado: %i ", e);
+            printf("Saindo elemento: %i\n", e);
         }
-        printf("\nFila esvaziada\n");
+        printf("\n\nFila esvaziada\n");
     }
 }
 
@@ -188,7 +194,7 @@ void menu()
     do
     {
         system("cls");
-        printf("FILA ESTATICA\n\n");
+        printf("FILA DINAMICA\n\n");
         printf("1 - Entrar\n");
         printf("2 - Sair\n");
         printf("3 - Mostrar fila\n");
@@ -203,64 +209,51 @@ void menu()
         {
         case '1':
         {
-            if (filaCheia(&f1))
-            {
-                printf("\n\nFila cheia\n");
-            }
-            else
-            {
-                printf("\n\nElemento: ");
-                scanf("%i", &e);
-                entrar(&f1, e);
-            }
-            getch();
+            printf("\n\nElemento : ");
+            scanf("%i", &e);
+            entrar(&f1, e);
             break;
         }
         case '2':
         {
             if (filaVazia(&f1))
             {
-                printf("\n\nFila vazia\n");
+                printf("\n\nFila Vazia\n");
             }
             else
             {
                 e = sair(&f1);
                 printf("\n\nElemento removido: %i", e);
             }
-            getch();
             break;
         }
         case '3':
         {
             mostrarFila(&f1);
-            getch();
             break;
         }
         case '4':
         {
             consultarInicio(&f1);
-            getch();
             break;
         }
         case '5':
         {
             consultarFim(&f1);
-            getch();
             break;
         }
         case '6':
         {
             tamanho(&f1);
-            getch();
             break;
         }
         case '7':
         {
             esvaziarFila(&f1);
-            getch();
             break;
         }
         }
+        getch();
     } while (opcao != '0');
 }
 
