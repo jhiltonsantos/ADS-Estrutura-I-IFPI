@@ -1,24 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <ncurses.h>
-#include <conio.h>
+#include <ncurses.h>
+//#include <conio.h>
 #include <stdbool.h>
-
-// AGENCIA BANCARIA ---> FILA ESTATICA
-// CLIENTE EMITE SENHA - INICIA TEMPO
-// CLIENTE SAI DA FILA - FINALIZA TEMPO
-// CRIAR GUICHE
-// VERIFICAR DISPONIBILIDADE DO GUICHE
-
-/*
-    OPERACOES:
-                - ENTRAR NUMERO DE GUICHES
-                - ENTRADA DE CLIENTE
-                - ATENDER CLIENTE
-                - SAIDA DE CLIENTE - CASO ATENDIDO
-                - FIM DA FILA
-
-*/
 
 #define tam 5
 
@@ -35,6 +19,12 @@ void iniciar_fila(fila *C)
 {
     C->inicio = -1;
     C->fim = -1;
+}
+
+void finalizar_fila(fila *C)
+{
+    C->inicio = tam;
+    C->fim = tam;
 }
 
 bool fila_cheia(fila *C)
@@ -77,12 +67,12 @@ int consultar_primeiro(fila *C)
     if (fila_vazia(C))
     {
         printf("\nFILA SEM CLIENTES!!!\n");
-        return 0;
+        return 999;
     }
     else
     {
         int cliente = C->elemento[C->inicio];
-        printf("\nCLIENTE: %i\n", cliente);
+        //printf("\nCLIENTE: %i\n", cliente);
         return cliente;
     }
 }
@@ -113,15 +103,29 @@ void entrar_fila(fila *C, int valor)
     C->elemento[C->fim] = valor;
 }
 
+int sair_fila_cliente(fila *C)
+{
+    int valor;
+    valor = C->elemento[C->inicio];
+    if (C->inicio == C->fim)
+    {
+        finalizar_fila(C);
+    }
+    else
+    {
+        C->inicio = C->inicio + 1;
+    }
+
+    return valor;
+}
+
 int sair_fila(fila *C)
 {
     int valor;
     valor = C->elemento[C->inicio];
     if (C->inicio == C->fim)
     {
-        // FILA VAZIA
-        C->inicio = -1;
-        C->fim = -1;
+        iniciar_fila(C);
     }
     else
     {
@@ -150,6 +154,7 @@ void esvaziar_fila(fila *C)
     }
 }
 
+
 void menu()
 {
     char opcao;
@@ -165,9 +170,10 @@ void menu()
     scanf("%d", &n_guiches);
     c = getchar();
     system("clear");
-
+    bool entrou_um;
     do
-    {
+    {   
+        
         system("clear");
         printf("AGENCIA BANCARIA\n\n");
         printf("1 - ENTRAR CLIENTE\n");
@@ -189,7 +195,7 @@ void menu()
                 int cliente;
                 if (fila_cheia(&Cliente))
                 {
-                    printf("\nFILA DE CLIENTES ESTA LOTADA!!!\n");
+                    printf("\nFILA DE CLIENTES FINALIZADA!!!\n");
                 }
                 else
                 {
@@ -197,6 +203,7 @@ void menu()
                     scanf("%d", &cliente);
                     entrar_fila(&Cliente, cliente);
                 }
+                entrou_um = true;
                 c = getchar();
                 break;
             }
@@ -209,29 +216,50 @@ void menu()
                 }
                 else
                 {
-                    int primeiro, saiu;
-                    primeiro = consultar_primeiro(&Cliente);
-                    saiu = sair_fila(&Cliente);
-                    entrar_fila(&Guiche, primeiro);
-                    printf("\nCLIENTE %d SAIU DA FILA E ESTA SENDO ATENDIDO!!!\n", saiu);
+                    if (fila_vazia(&Cliente)){
+                        printf("FILA DE CLIENTES VAZIA!!!");
+                    }
+                    else{
+                        int primeiro, saiu, ultimo = 0;
+                        if (tamanho(&Cliente) == 1){
+                            ultimo ++;
+                        }
+                        primeiro = consultar_primeiro(&Cliente);
+                        if (primeiro != 999){ // FORÇAR FILA CLIENTES FINALIZAR
+                            saiu = sair_fila_cliente(&Cliente);
+                            if (ultimo == 1)
+                            {
+                                esvaziar_fila(&Cliente);
+                            }
+                            entrar_fila(&Guiche, primeiro);
+                            printf("\nCLIENTE %d SAIU DA FILA E ESTA SENDO ATENDIDO!!!\n", saiu);
+                        }
+                    }
                 }
+                /*if ((entrou_um==true) && (fila_vazia(&Cliente) && fila_vazia(&Guiche)))
+                { 
+                    printf("\nFINALIZANDO PROGRAMA!!!");
+                    opcao = '9';
+                }*/
+
                 c = getchar();
                 break;
             }
 
             case '3':
             {   // CLIENTE ATENDIDO
-                if (tamanho(&Guiche) == 0){
+                if (tamanho(&Guiche) == 0)
+                {
                     printf("Continuando...");
                     c = getchar();
                     break;
                 }
-                else{
+                else
+                {
                     int saiu;
                     saiu = sair_fila(&Guiche);
                     printf("\nCLIENTE %d FOI ATENDIDO!!!\n", saiu);
                 }
-
             }
 
             case '4':
@@ -242,7 +270,7 @@ void menu()
             }
 
             case '5':
-            { // MOSTRAR ELEMENTOS NA FILA GUICHE
+            {   // MOSTRAR ELEMENTOS NA FILA GUICHE
                 mostrar_fila(&Guiche);
                 c = getchar();
                 break;
@@ -263,9 +291,11 @@ void menu()
             }
 
             default:
-            {
-                printf("\n\nOPCAO INVALIDA!!!");
-                c = getchar();
+            {   
+                if(opcao != '9'){
+                    printf("\n\nOPCAO INVALIDA!!!");
+                    c = getchar();
+                }
                 break;
             }
         }
