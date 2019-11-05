@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 
 void shaker_sort(int tam, int array[tam])
 {
@@ -54,6 +55,8 @@ void mostrar_array(int tam, int array[tam])
 
 int main(void)
 {
+    srand(time(NULL));
+
     int tam = 10;
     int array[tam];
 
