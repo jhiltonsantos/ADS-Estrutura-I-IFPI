@@ -2,52 +2,48 @@
 #include <stdlib.h>
 #include <ncurses.h>
 
-void cocktail_sort(int list[10])
-{
-    int tamanho, inferior, topo, trocar, i, aux;
-    tamanho = 10;
-    inferior = 0;
-    topo = tamanho - 1;
-    trocar = 0;
-    while (trocar == 0 && inferior < topo) //Se não houver troca de posições ou o ponteiro que
-    {                                    //sobe ultrapassar o que desce, o vetor esta ordenado
+void cocktail_sort(int array[10]){
+    int tamanho = 10;
+    int inferior = 0;
+    int topo = tamanho - 1;
+    int trocar = 0;
+    int aux;
+
+    while (trocar==0 && inferior<topo){ //Se não houver troca de posições ou o ponteiro que
+                                        //sobe ultrapassar o que desce, o vetor esta ordenado
         trocar = 1;
         //Este for é a “ida” para a direita
-        for (i = inferior; i < topo; i = i + 1)
-        {
-            if (list[i] > list[i + 1]) //indo pra direita:testa se o próximo é topo
-            {                          //indo pra direita:se o proximo é topo que o atual,
-                //troca as posições
-                aux = list[i];
-                list[i] = list[i + 1];
-                list[i + 1] = aux;
+        for (int i = inferior; i < topo; i++){
+            if (array[i] > array[i+1]){ //indo pra direita:testa se o próximo é topo
+                                      //indo pra direita:se o proximo é topo que o atual,
+                aux = array[i];
+                array[i] = array[i+1];
+                array[i+1] = aux;
                 trocar = 0;
             }
-        } //fecha for
+        }
         // diminui o  `topo` porque o elemento com o topo valor
         // já está na direita (atual posição topo)
-        topo = topo - 1;
+        topo --;
         //Este for é a “ida” para a esquerda
-        for (i = topo; i > inferior; i = i - 1)
-        {
-            if (list[i] < list[i - 1])
-            {
-                aux = list[i];
-                list[i] = list[i - 1];
-                list[i - 1] = aux;
+        for (int i = topo; i > inferior; i--){
+            if (array[i] < array[i-1]){
+                aux = array[i];
+                array[i] = array[i-1];
+                array[i-1] = aux;
                 trocar = 0;
             }
         }
         //aumenta o `inferior` porque o inferior valor já está
         //na posição inicial (inferior)
-        inferior = inferior + 1;
-    } //fecha while
-} // fim da funçao
+        inferior ++;
+    }
+}
 
 
-void mostrar_array(int tam, int list[tam]){
+void mostrar_array(int tam, int array[tam]){
     for (int i = 0; i < 10; i++){
-        printf("%d ", list[i]);
+        printf("%d ", array[i]);
     }
     printf("\n");
 }
