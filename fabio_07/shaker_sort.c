@@ -1,61 +1,75 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ncurses.h>
+//#include <ncurses.h>
+#include <conio.h>
+#include <stdbool.h>
 
-void cocktail_sort(int array[10]){
-    int tamanho = 10;
+void cocktail_sort(int tam, int array[tam])
+{
     int inferior = 0;
-    int topo = tamanho - 1;
-    int trocar = 0;
+    int topo = tam - 1;
+    bool continua = true;
     int aux;
 
-    while (trocar==0 && inferior<topo){ //Se não houver troca de posições ou o ponteiro que
-                                        //sobe ultrapassar o que desce, o vetor esta ordenado
-        trocar = 1;
+    do
+    { //Se não houver troca de posições ou o ponteiro que sobe ultrapassar o que desce, o vetor esta ordenado
+        continua = false;
         //Este for é a “ida” para a direita
-        for (int i = inferior; i < topo; i++){
-            if (array[i] > array[i+1]){ //indo pra direita:testa se o próximo é topo
-                                      //indo pra direita:se o proximo é topo que o atual,
+        for (int i = inferior; i < topo; i++)
+        {
+            if (array[i] > array[i+1]) 
+            {   //indo pra direita: testa se o próximo é topo indo pra direita:se o proximo é topo que o atual,
                 aux = array[i];
                 array[i] = array[i+1];
                 array[i+1] = aux;
-                trocar = 0;
+                continua = true;
             }
         }
         // diminui o  `topo` porque o elemento com o topo valor
         // já está na direita (atual posição topo)
         topo --;
         //Este for é a “ida” para a esquerda
-        for (int i = topo; i > inferior; i--){
-            if (array[i] < array[i-1]){
+        for (int i = topo; i > inferior; i--)
+        {
+            if (array[i] < array[i-1])
+            {
                 aux = array[i];
                 array[i] = array[i-1];
                 array[i-1] = aux;
-                trocar = 0;
+                continua = true;
             }
         }
         //aumenta o `inferior` porque o inferior valor já está
         //na posição inicial (inferior)
         inferior ++;
-    }
+    } while (continua == true && inferior < topo);
 }
 
 
-void mostrar_array(int tam, int array[tam]){
-    for (int i = 0; i < 10; i++){
+void mostrar_array(int tam, int array[tam]) 
+{
+    for (int i = 0; i < 10; i++)
+    {
         printf("%d ", array[i]);
     }
     printf("\n");
 }
 
-int main(void){
-    int array[10] = {1,3,4,5,6,2,8,7,9,0};
+int main(void) 
+{
+    int tam = 10;
+    int array[tam];
+    
+    for (int i=0; i < tam; i++ )
+    {
+        array[i] = rand() % 100;
+    }
     
     printf("\nAntes do Shaker Sort: \n");
-    mostrar_array(10, array);
+    mostrar_array(tam, array);
 
-    cocktail_sort(array);
+    cocktail_sort(tam, array);
     printf("\nDepois do Shaker Sort: \n");
-    mostrar_array(10, array);
+    mostrar_array(tam, array);
     
 }
