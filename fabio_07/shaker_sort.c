@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ncurses.h>
-//#include <conio.h>
 #include <stdbool.h>
 
 void shaker_sort(int tam, int array[tam])
