@@ -4,7 +4,7 @@
 //#include <conio.h>
 #include <stdbool.h>
 
-void cocktail_sort(int tam, int array[tam])
+void shaker_sort(int tam, int array[tam])
 {
     int inferior = 0;
     int topo = tam - 1;
@@ -68,7 +68,7 @@ int main(void)
     printf("\nAntes do Shaker Sort: \n");
     mostrar_array(tam, array);
 
-    cocktail_sort(tam, array);
+    shaker_sort(tam, array);
     printf("\nDepois do Shaker Sort: \n");
     mostrar_array(tam, array);
     
