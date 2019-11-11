@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ncurses.h>
+//#include <ncurses.h>
 //#include <conio.h>
 #include <stdbool.h>
 
@@ -15,17 +15,20 @@ typedef struct
 fila Cliente;
 fila Guiche;
 
+
 void iniciar_fila(fila *C)
 {
     C->inicio = -1;
     C->fim = -1;
 }
 
+
 void finalizar_fila(fila *C)
 {
     C->inicio = tam;
     C->fim = tam;
 }
+
 
 bool fila_cheia(fila *C)
 {
@@ -36,6 +39,7 @@ bool fila_cheia(fila *C)
     return false;
 }
 
+
 bool fila_vazia(fila *C)
 {
     if ((C->fim == -1) && (C->inicio == -1))
@@ -45,7 +49,7 @@ bool fila_vazia(fila *C)
     return false;
 }
 
-//funcao tamanho
+
 int tamanho(fila *C)
 {
     int tamanho;
@@ -62,6 +66,7 @@ int tamanho(fila *C)
     }
 }
 
+
 int consultar_primeiro(fila *C)
 {
     if (fila_vazia(C))
@@ -76,6 +81,7 @@ int consultar_primeiro(fila *C)
         return cliente;
     }
 }
+
 
 void mostrar_fila(fila *C)
 {
@@ -93,6 +99,7 @@ void mostrar_fila(fila *C)
     }
 }
 
+
 void entrar_fila(fila *C, int valor)
 {
     if (fila_vazia(C))
@@ -102,6 +109,7 @@ void entrar_fila(fila *C, int valor)
     C->fim = C->fim + 1;
     C->elemento[C->fim] = valor;
 }
+
 
 int sair_fila_cliente(fila *C)
 {
@@ -119,6 +127,7 @@ int sair_fila_cliente(fila *C)
     return valor;
 }
 
+
 int sair_fila(fila *C)
 {
     int valor;
@@ -134,6 +143,7 @@ int sair_fila(fila *C)
 
     return valor;
 }
+
 
 void esvaziar_fila(fila *C)
 {
@@ -170,7 +180,7 @@ void menu()
     scanf("%d", &n_guiches);
     c = getchar();
     system("clear");
-    bool entrou_um;
+
     do
     {   
         
@@ -203,7 +213,7 @@ void menu()
                     scanf("%d", &cliente);
                     entrar_fila(&Cliente, cliente);
                 }
-                entrou_um = true;
+                
                 c = getchar();
                 break;
             }
@@ -236,12 +246,6 @@ void menu()
                         }
                     }
                 }
-                /*if ((entrou_um==true) && (fila_vazia(&Cliente) && fila_vazia(&Guiche)))
-                { 
-                    printf("\nFINALIZANDO PROGRAMA!!!");
-                    opcao = '9';
-                }*/
-
                 c = getchar();
                 break;
             }
@@ -302,8 +306,7 @@ void menu()
     } while (opcao != '9');
 }
 
-int main(int argc, char const *argv[])
-{
+
+int main(void){
     menu();
-    return 0;
 }
