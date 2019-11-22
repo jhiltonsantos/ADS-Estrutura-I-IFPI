@@ -5,6 +5,7 @@
 
 #define tam 5
 
+
 void menu()
 {
     char opcao;
