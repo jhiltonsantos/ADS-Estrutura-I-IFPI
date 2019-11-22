@@ -21,9 +21,11 @@ void esvaziar_fila (fila *F);
 bool inserir_fila (fila *F, tipo_info e);
 bool remover_fila (fila *F, tipo_info e);
 int tamanho_fila (fila *F);
+void mostrar_fila(fila *F);
+bool comeco_fila (fila *F, tipo_info *item);
 
 
-void inicializar (fila *F)
+void inicializar(fila *F)
 {
     F-> inicio = NULL;
     F-> fim = NULL;
@@ -129,4 +131,15 @@ void mostrar_fila(fila *F)
             valor = valor->lig;
         }        
     }
+}
+
+bool comeco_fila(fila *F, tipo_info *item){
+    // PARA MOSTRAR O INICIO: &item
+    if (fila_vazia(F))
+    {
+        return false;
+    }
+
+    *item = F->inicio->info;
+    return true;
 }
