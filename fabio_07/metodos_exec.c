@@ -1,10 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-//#include <time.h>
 #include "metodos_ordenacao.h"
 
 #define tam 5
+
 
 int main(void)
 {
