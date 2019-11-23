@@ -133,13 +133,13 @@ void mostrar_fila(fila *F)
     }
 }
 
-bool comeco_fila(fila *F, tipo_info *item){
+bool comeco_fila(fila *F, tipo_info *e){
     // PARA MOSTRAR O INICIO: &item
     if (fila_vazia(F))
     {
         return false;
     }
 
-    *item = F->inicio->info;
+    *e = F->inicio->info;
     return true;
 }
