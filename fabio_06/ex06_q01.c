@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
 #include "fila_estatica.h"
-
-#define tam 5
 
 
 void menu()

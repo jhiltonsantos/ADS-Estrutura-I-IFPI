@@ -82,7 +82,6 @@ int consultar_primeiro(fila *C)
     else
     {
         int cliente = C->elemento[C->inicio];
-        //printf("\nCLIENTE: %i\n", cliente);
         return cliente;
     }
 }
@@ -163,4 +162,3 @@ void esvaziar_fila(fila *C)
         printf("\nFILA ESVAZIADA\n");
     }
 }
-

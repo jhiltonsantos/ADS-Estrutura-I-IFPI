@@ -21,7 +21,7 @@ void esvaziar_fila (fila *F);
 bool inserir_fila (fila *F, tipo_info e);
 bool remover_fila (fila *F, tipo_info e);
 int tamanho_fila (fila *F);
-void mostrar_fila(fila *F);
+void mostrar_fila (fila *F);
 bool comeco_fila (fila *F, tipo_info *item);
 
 
