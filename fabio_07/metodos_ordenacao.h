@@ -3,8 +3,14 @@
 #include <stdbool.h>
 #include <time.h>
 
+void mostrar_array(int tam, int array[]);
+void bubble_sort(int tam, int array[]);
+void shaker_sort(int tam, int array[]);
+void selection_sort(int tam, int array[]);
+void inserction_sort(int tam, int array[]);
 
-void mostrar_array(int tam, int array[tam])
+
+void mostrar_array(int tam, int array[])
 {
     for (int i = 0; i < tam; i++)
     {
@@ -14,20 +20,37 @@ void mostrar_array(int tam, int array[tam])
 }
 
 
-void shaker_sort(int tam, int array[tam])
+void bubble_sort (int tam, int array[]) 
+{
+    int aux;
+    bool troca=true;
+
+    while (troca)
+    {   
+        troca = false;
+        for (int i = 0; i < tam-1; i++)
+        {
+            if (array[i] > array [i+1])
+            {   
+                troca = true;
+                aux = array[i];
+                array[i] = array[i+1];
+                array[i+1] = aux;
+            }
+        }
+    }     
+}
+
+
+void shaker_sort(int tam, int array[])
 {
     int inferior = 0;
     int topo = tam - 1;
     bool continua = true;
     int aux;
-    int volta = 1;
-
-    printf("\nAntes do Shaker Sort: \n");
-    mostrar_array(tam, array);
 
     do
     {
-        
         continua = false;
 
         for (int i = inferior; i < topo; i++)
@@ -56,24 +79,16 @@ void shaker_sort(int tam, int array[tam])
         }
         
         inferior++;
-        volta++;
-        
-    } while (continua == true && inferior < topo);
 
-    printf("\nDepois do Shaker Sort: \n");
-    mostrar_array(tam, array);
+    } while (continua == true && inferior < topo);
 }
 
 
-void selection_sort(int tam, int array[tam])
+void selection_sort(int tam, int array[])
 {   // Fixa uma posicao do vetor e compara com todas as outras,
     // até encontrar a posição de menor valor e troca a posição
     // atual com a menor
-
     int menor, aux;
-
-    printf("\nAntes do Selection Sort: \n");
-    mostrar_array(tam, array);
 
     for (int i=0; i<tam-1; i++)
     {   
@@ -92,17 +107,12 @@ void selection_sort(int tam, int array[tam])
             array[menor] = aux;
         }
     }
-    
-    printf("\nDepois do Selection Sort: \n");
-    mostrar_array(tam, array);
 }
 
-void inserction_sort(int tam, int array[tam])
+
+void inserction_sort(int tam, int array[])
 {
     int troca, j;
-
-    printf("\nAntes do Inserction Sort: \n");
-    mostrar_array(tam, array);
 
     for (int i = 0; i < tam; i++)
     {
@@ -116,24 +126,4 @@ void inserction_sort(int tam, int array[tam])
         }
         array[j+1] = troca;
     }
-
-    printf("\nDepois do Inserction Sort: \n");
-    mostrar_array(tam, array);
-}
-
-
-int main(void)
-{
-    srand(time(NULL));
-
-    int tam = 5;
-    
-    int array[5] = {5, 4, 2, 3, 1};
-    shaker_sort(tam, array);
-
-    int array_2[5] = {3, 4, 1, 5, 2};
-    selection_sort(tam, array_2);
-
-    int array_3[5] = {3, 4, 1, 5, 2};
-    inserction_sort(tam, array_3);
 }
